@@ -11,27 +11,27 @@
 - [x] `.agents/product-marketing.md` — contexto de negocio
 - [x] `.agents/AGENTS.md` — instrucciones del proyecto
 - [x] `CLAUDE.md` — reglas de codificación
-- [ ] Logo "Glassitas" colocado en `assets/logo/`
-- [ ] Fotos de producto en `assets/productos/`
-- [ ] Paleta de colores + tipografías definidas
-- [ ] `scripts/overlay_logo.py` — marca de agua automática
+- [x] Logo "Glassitas" colocado en `assets/logo/` (SVG + PNG)
+- [x] Fotos de producto en `assets/productos/` (36 imágenes)
+- [x] Paleta de colores + tipografías definidas
+- [x] `scripts/overlay_logo.py` — marca de agua ejecutado ✓
 
 ## Etapa 2 — Contenido + Copys
 
-- [ ] `marketing/ESTRATEGIA_360.md` — estrategia completa
-- [ ] `marketing/CALENDARIO_30_DIAS.md` — calendario editorial
-- [ ] `marketing/COPYS/15-anos.md` — textos para XV años
-- [ ] `marketing/COPYS/baby-shower.md` — textos para baby shower
-- [ ] `marketing/COPYS/bodas.md` — textos para bodas
-- [ ] `marketing/COPYS/generales.md` — textos para otros eventos
-- [ ] `marketing/prompts-imagenes.md` — prompts para IA
-- [ ] `marketing/respuestas-comerciales.md` — respuestas para clientes
+- [x] `marketing/ESTRATEGIA_360.md` — estrategia completa
+- [x] `marketing/CALENDARIO_30_DIAS.md` — calendario editorial
+- [x] `marketing/COPYS/15-anos.md` — textos para XV años
+- [x] `marketing/COPYS/baby-shower.md` — textos para baby shower
+- [x] `marketing/COPYS/bodas.md` — textos para bodas
+- [x] `marketing/COPYS/generales.md` — textos para otros eventos
+- [x] `marketing/prompts-imagenes.md` — prompts para IA
+- [x] `marketing/respuestas-comerciales.md` — respuestas para clientes
 
 ## Etapa 3 — Landing Page (web/)
 
-- [ ] `web/index.html` — hero + galería + WhatsApp CTA
-- [ ] Diseño responsive (móvil primero)
-- [ ] Publicar en GitHub Pages
+- [x] `index.html` — hero + galería + WhatsApp CTA
+- [x] Diseño responsive (móvil primero)
+- [x] Publicar en GitHub Pages → https://pmailprueba-apps.github.io/glassitas/
 
 ## Etapa 4 — Redes Sociales
 
@@ -48,7 +48,7 @@
 
 - [ ] Plantillas de flyer por categoría de evento
 - [ ] Primeros 10 posts generados (flyer + foto real)
-- [ ] Marca de agua aplicada a todas las imágenes
+- [x] Marca de agua aplicada a todas las imágenes (en `assets/productos/con-marca/`)
 
 ## Etapa 6 — TikTok (futuro)
 
@@ -68,4 +68,6 @@
 
 | Fecha | Avance |
 |-------|--------|
-| 25/06/26 | Estructura inicial creada |
+| 25/06/26 | Estructura inicial creada, 15 archivos, web publicada en GitHub Pages |
+| 25/06/26 | Logo + 36 fotos de producto + marca de agua aplicada |
+| 25/06/26 | Repo: pmailprueba-apps/glassitas → push a main |

@@ -1,0 +1,33 @@
+{
+  "horarios": ["12:00", "18:00"],
+  "dias": {
+    "Lunes": [
+      { "copy": "Hola, somos Glassitas ✨ Convertimos galletas en pequeños pedazos de felicidad decorada. Hechas a mano, decoradas una por una. ¿Qué evento tienes próximamente? Cuéntanos 👇" },
+      { "copy": "Hoy: variedad de galletas decoradas 🍪🌈 Diferentes colores, diferentes estilos, un mismo amor por el detalle. Todas disponibles para tu evento." }
+    ],
+    "Martes": [
+      { "copy": "El 15 que más brilla 🎀 Números decorados a mano con los colores de tu vestido, tu coronita y los detalles que hacen única tu fiesta. ¿Ya tienes definidos los colores de tu XV?" },
+      { "copy": "Colores pastel para tu baby shower 🌸 Rosa viejo, azul cielo, lavanda, menta… en glasa real se ven aún más lindos. ¿Cuál es tu combinación favorita?" }
+    ],
+    "Miércoles": [
+      { "copy": "De ahora en adelante, juntos… y en galleta también ❤️ Iniciales de los novios entrelazadas, fecha grabada, y el detalle más dulce para tus invitados." },
+      { "copy": "Así nacen nuestras galletas 🍪✨ 1️⃣ Galleta de mantequilla 2️⃣ Glasa real 3️⃣ Decoración a mano 4️⃣ Empaque individual. Solo ingredientes de verdad." }
+    ],
+    "Jueves": [
+      { "copy": "El osito más dulce del baby shower 🧸💙 Ositos, biberones, nubes y el nombre del bebé. Cotiza con nosotros y te damos ideas para tu mesa." },
+      { "copy": "Tus colores de boda traducidos a galleta 🎨 Verde oliva, marsala, champagne, nude… cualquier paleta la replicamos fielmente. Comparte tus colores." }
+    ],
+    "Viernes": [
+      { "copy": "La hora del antojo de algo dulce 🍪 Sí, las galletas decoradas también se antojan. Galleta de mantequilla artesanal, glasa real. Nada de fondant." },
+      { "copy": "¿Tu evento es en 2 semanas? Aparta tu fecha YA 📅 Trabajamos por pedido y con cupo limitado. Entre más pronto nos digas, mejor." }
+    ],
+    "Sábado": [
+      { "copy": "¿Celebrando un cumpleaños? 🎂 Números, temáticas, personajes… todo se puede en galleta decorada. El detalle que los invitados van a fotografiar." },
+      { "copy": "Pack perfecto 🎀 Galleta + bolsa individual + etiqueta personalizada con el nombre de tu evento. Cotiza sin compromiso." }
+    ],
+    "Domingo": [
+      { "copy": "⭐ Clientes felices: 'Se las encargué para el baby shower y fueron un éxito'. Gracias por confiar en nosotras para endulzar tus momentos." },
+      { "copy": "Haz tu evento más dulce con Glassitas 🍪✨ Boda, baby shower, XV años o cumpleaños. Estamos a un mensaje de distancia. #Glassitas #Contáctanos" }
+    ]
+  }
+}

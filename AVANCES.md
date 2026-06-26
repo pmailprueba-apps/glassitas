@@ -44,10 +44,10 @@
 - [x] System User "Glassitas bot" creado (ID: 122094378873384233)
 - [x] Business Manager "Glassitas Publisher" (ID: 989666967381176)
 - [x] `scripts/generar-token-system-user.js` — script para generar token permanente
-- [ ] **PENDIENTE**: Solicitar `pages_manage_posts` via App Review en:
-      https://developers.facebook.com/apps/2931073960575850/app-review/
-- [ ] Después de App Review, ejecutar: `ADMIN_TOKEN="EAA..." node scripts/generar-token-system-user.js`
-- [ ] `scripts/post.js` configurado con token de System User
+- [x] `pages_manage_posts` obtenido exitosamente
+- [x] `scripts/post.js` configurado con Page Token via API (Graph API v19.0)
+- [x] Publicación de texto e imagen funcionando
+- [ ] Configurar System User para token permanente (la app es tipo Games, necesita ser Business)
 - [ ] Publicar manual (primera semana)
 - [ ] `contenido/calendario.json` con schedule
 - [ ] Automatizar publicación con cron/Docker
@@ -83,3 +83,4 @@
 | 25/06/26 | App Glassitas Publisher (ID: 2931073960575850) + System User (122094378873384233) |
 | 25/06/26 | Token generation vía System User FUNCIONA (appsecret_proof) — falta pages_manage_posts en la app |
 | 25/06/26 | 🔴 BLOQUEANTE: Meta eliminó pages_manage_posts para apps nuevas. Requiere App Review. |
+| 25/06/26 | ✅✅✅ API DE FACEBOOK REPARADA! pages_manage_posts concedido. Post via API funcionando. |

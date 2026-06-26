@@ -15,6 +15,8 @@
 - [x] Fotos de producto en `assets/productos/` (36 imágenes)
 - [x] Paleta de colores + tipografías definidas
 - [x] `scripts/overlay_logo.py` — marca de agua ejecutado ✓
+- [x] Token de Facebook actualizado en `.config.json`
+- [x] `scripts/post.js` — publicador por navegador (Puppeteer)
 
 ## Etapa 2 — Contenido + Copys
 
@@ -71,3 +73,4 @@
 | 25/06/26 | Estructura inicial creada, 15 archivos, web publicada en GitHub Pages |
 | 25/06/26 | Logo + 36 fotos de producto + marca de agua aplicada |
 | 25/06/26 | Repo: pmailprueba-apps/glassitas → push a main |
+| 25/06/26 | Nuevo token FB + Puppeteer instalado. IG Business convertido (@alexram80) |

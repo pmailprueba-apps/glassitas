@@ -37,11 +37,17 @@
 
 ## Etapa 4 — Redes Sociales
 
-- [ ] Crear página de Facebook "Glassitas"
-- [ ] Configurar Instagram Business
-- [ ] Conectar a Instagram Business
-- [ ] Obtener tokens de Graph API
-- [ ] `scripts/post.js` configurado con tokens
+- [x] Crear página de Facebook "Glassitas" → ID: 1111933412010777
+- [x] Instagram convertido a Business (@alexram80)
+- [ ] Vincular Instagram a página Glassitas (desde Centro de cuentas)
+- [x] App Glassitas Publisher creada (ID: 2931073960575850)
+- [x] System User "Glassitas bot" creado (ID: 122094378873384233)
+- [x] Business Manager "Glassitas Publisher" (ID: 989666967381176)
+- [x] `scripts/generar-token-system-user.js` — script para generar token permanente
+- [ ] **PENDIENTE**: Solicitar `pages_manage_posts` via App Review en:
+      https://developers.facebook.com/apps/2931073960575850/app-review/
+- [ ] Después de App Review, ejecutar: `ADMIN_TOKEN="EAA..." node scripts/generar-token-system-user.js`
+- [ ] `scripts/post.js` configurado con token de System User
 - [ ] Publicar manual (primera semana)
 - [ ] `contenido/calendario.json` con schedule
 - [ ] Automatizar publicación con cron/Docker
@@ -74,3 +80,6 @@
 | 25/06/26 | Logo + 36 fotos de producto + marca de agua aplicada |
 | 25/06/26 | Repo: pmailprueba-apps/glassitas → push a main |
 | 25/06/26 | Nuevo token FB + Puppeteer instalado. IG Business convertido (@alexram80) |
+| 25/06/26 | App Glassitas Publisher (ID: 2931073960575850) + System User (122094378873384233) |
+| 25/06/26 | Token generation vía System User FUNCIONA (appsecret_proof) — falta pages_manage_posts en la app |
+| 25/06/26 | 🔴 BLOQUEANTE: Meta eliminó pages_manage_posts para apps nuevas. Requiere App Review. |

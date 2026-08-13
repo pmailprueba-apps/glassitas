@@ -1,0 +1,49 @@
+name: Publicador Glassitas
+on:
+  schedule:
+    - cron: '0 18 * * *'
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Slot a publicar (0=12:00, 1=18:00) o "auto"'
+        required: false
+        default: 'auto'
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Determinar slot
+        id: slot
+        env:
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [ "${{ github.event.inputs.slot }}" != "" ]; then
+            echo "slot=${{ github.event.inputs.slot }}" >> "$GITHUB_OUTPUT"
+          elif [ "$SCHEDULE" = "0 18 * * *" ]; then
+            echo "slot=0" >> "$GITHUB_OUTPUT"
+          elif [ "$SCHEDULE" = "0 0 * * *" ]; then
+            echo "slot=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "slot=auto" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Correr publicador
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          chmod +x scripts/publicar-glassitas.sh
+          ./scripts/publicar-glassitas.sh "${{ steps.slot.outputs.slot }}"
+      - name: Commit estado
+        run: |
+          git config user.name "Glassitas Bot"
+          git config user.email "bot@glassitas.com"
+          git add .glassitas-published.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios"
+          else
+            git commit -m "📅 Publicación automática Glassitas"
+            git pull --rebase origin main || true
+            git push
+          fi

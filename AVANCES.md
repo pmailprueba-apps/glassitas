@@ -47,10 +47,14 @@
 - [x] `pages_manage_posts` obtenido exitosamente
 - [x] `scripts/post.js` configurado con Page Token via API (Graph API v19.0)
 - [x] Publicación de texto e imagen funcionando
+- [x] `contenido/calendario.json` con schedule
+- [x] Automatización con GitHub Actions (emula sistema Cráneo Noble)
+- [x] `scripts/publicar-glassitas.sh` — publicador bash+curl (sin Node), 2 slots/día
+- [x] `.github/workflows/glassitas.yml` — corre 12:00 y 18:00 CDMX
+- [x] `.glassitas-published.json` — estado anti-duplicados
+- [ ] 🔴 PENDIENTE: regenerar Page Token (expiró 25 Jun 2026) y configurarlo como secret `FB_PAGE_TOKEN` en GitHub
 - [ ] Configurar System User para token permanente (la app es tipo Games, necesita ser Business)
 - [ ] Publicar manual (primera semana)
-- [ ] `contenido/calendario.json` con schedule
-- [ ] Automatizar publicación con cron/Docker
 
 ## Etapa 5 — Flyers y Posts Visuales
 

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glassitas Boutique Bakery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+
+
+<script>
+ tailwind.config = {
+ darkMode: "class",
+ theme: {
+ extend: {
+ fontFamily: {
+                    sans: ['"Gabriela"', 'serif'],
+                    serif: ['"Dancing Script"', 'cursive']
+                },
+ animation: {
+ 'infinite-scroll': 'scroll 25s linear infinite',
+ },
+ keyframes: {
+ scroll: {
+ '0%': { transform: 'translateX(0)' },
+ '100%': { transform: 'translateX(-50%)' },
+ }
+ },
+ "colors": {
+ "surface-dim": "#dbdad5",
+ "surface-bright": "#F8DCD1",
+ "on-tertiary-fixed": "#331200",
+ "secondary": "#9c4414",
+ "surface-container-lowest": "#ffffff",
+ "deep-teal": "#004B4D",
+ "background": "#F8DCD1",
+ "secondary-fixed-dim": "#ffb595",
+ "primary-fixed-dim": "#96d1d3",
+ "error": "#ba1a1a",
+ "tertiary": "#492208",
+ "on-secondary-fixed": "#351000",
+ "on-surface": "#1b1c19",
+ "surface-container-high": "#eae8e3",
+ "terracotta": "#C46231",
+ "on-surface-variant": "#3f4849",
+ "on-secondary-container": "#702900",
+ "on-background": "#1b1c19",
+ "tertiary-container": "#64371c",
+ "inverse-primary": "#96d1d3",
+ "on-primary-fixed-variant": "#084f51",
+ "surface-container-low": "#f5f3ee",
+ "inverse-surface": "#30312e",
+ "secondary-container": "#fc8e59",
+ "inverse-on-surface": "#f2f1ec",
+ "ink-stone": "#2D3132",
+ "outline-variant": "#bfc8c8",
+ "primary-container": "#004b4d",
+ "on-secondary": "#ffffff",
+ "on-secondary-fixed-variant": "#7c2e00",
+ "surface": "#fbf9f4",
+ "surface-variant": "#e4e2dd",
+ "on-tertiary": "#ffffff",
+ "surface-container-highest": "#e4e2dd",
+ "outline": "#707979",
+ "on-error": "#ffffff",
+ "on-primary-container": "#7fbabc",
+ "primary": "#003334",
+ "tertiary-fixed": "#ffdbca",
+ "surface-container": "#f0eee9",
+ "on-primary-fixed": "#002021",
+ "on-tertiary-container": "#e1a17e",
+ "error-container": "#ffdad6",
+ "surface-tint": "#2a6769",
+ "on-error-container": "#93000a",
+ "tertiary-fixed-dim": "#fbb894",
+ "on-primary": "#ffffff",
+ "secondary-fixed": "#ffdbcc",
+ "off-white": "#F9F7F2",
+ "on-tertiary-fixed-variant": "#693b20",
+ "primary-fixed": "#b1edef"
+ },
+ "borderRadius": {
+ "DEFAULT": "0.125rem",
+ "lg": "0.25rem",
+ "xl": "0.5rem",
+ "full": "0.75rem"
+ },
+ "spacing": {
+ "container-max": "1280px",
+ "unit": "8px",
+ "margin-mobile": "20px",
+ "asymmetric-offset": "64px",
+ "gutter": "32px"
+ },
+ 
+ "fontSize": {
+ "display-lg-mobile": ["40px", { "lineHeight": "48px", "fontWeight": "400" }],
+ "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+ "product-code": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+ "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+ "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+ "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+ "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }]
+ }
+ }
+ }
+ }
+ document.addEventListener("DOMContentLoaded", () => { renderEventos(); });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Gabriela&display=swap" rel="stylesheet"/>
+<style>
+        .tactile-btn {
+            transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            will-change: transform;
+        }
+        .tactile-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 3px 3px 0px 0px #C46231;
+        }
+        .tactile-btn:active {
+            transform: scale(0.97) translate(0px, 0px) !important;
+            box-shadow: 0px 0px 0px 0px #C46231 !important;
+        }
+        
+        .product-card {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+        .product-card:hover {
+            transform: scale(1.02);
+        }
+        .product-card:active {
+            transform: scale(0.98);
+        }
+        
+        .lightbox-anim {
+            transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        a, button {
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+            transition-duration: 0.2s !important;
+        }
+        
+        .active-scale:active {
+            transform: scale(0.97) !important;
+        }
+
+        .inner-border {
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(196, 98, 49, 0.4);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .product-img {
+            transition: transform 0.5s ease;
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 75, 77, 0.08);
+        }
+
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #004B4D;
+            color: #ffffff;
+            padding: 0.875rem 2.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 10px 20px -5px rgba(0, 75, 77, 0.25);
+            transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+            text-decoration: none;
+        }
+        .btn-premium:hover {
+            background-color: #00383a;
+            box-shadow: 0 15px 25px -5px rgba(0, 75, 77, 0.35);
+            transform: translateY(-2px);
+        }
+        .btn-premium:active {
+            transform: scale(0.97) translateY(0);
+            box-shadow: 0 4px 6px -1px rgba(0, 75, 77, 0.2);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 30s linear infinite;
+            display: inline-flex;
+            width: max-content;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+</style>
+
+</head>
+
+
+<body class="font-sans bg-[#FDFBF7] text-on-surface text-base overflow-x-hidden relative selection:bg-terracotta/20">
+<!-- Faint Background Image -->
+<div class="fixed inset-0 z-[-1] bg-[url('assets/background.jpeg')] bg-cover bg-center bg-no-repeat opacity-[0.20] pointer-events-none"></div>
+
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-bright/90 backdrop-blur-md z-50 border-b border-terracotta/10 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-12 py-3">
+<div class="flex items-center gap-2">
+<a href="#" class="inline-block relative group">
+ <div class="absolute inset-0 bg-white/40 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+ <img src="assets/logo/logo_transparente.png" alt="Glassitas Logo" class="h-14 md:h-20 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105">
+</a>
+</div>
+<nav class="hidden md:flex items-center gap-10 bg-white/60 px-8 py-3 rounded-full border border-terracotta/10 shadow-[inset_0_1px_1px_rgba(255,255,255,1)]">
+<a class="text-deep-teal font-bold border-b-2 border-terracotta pb-0.5 hover:text-terracotta transition-colors" href="#">Galería</a>
+<a class="text-on-surface-variant font-semibold hover:text-terracotta transition-colors active-scale" href="#mayoreo">Mayoreo</a>
+<a class="text-on-surface-variant font-semibold hover:text-terracotta transition-colors active-scale" href="preguntas-frecuentes.html">Preguntas Frecuentes</a>
+</nav>
+<a href="https://wa.me/524445101553" target="_blank" class="tactile-btn bg-deep-teal text-white px-7 py-3 rounded-full text-sm font-bold uppercase tracking-widest hidden md:flex items-center gap-2 shadow-lg hover:shadow-xl hover:bg-[#00383a]">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Contacto
+</a>
+<button class="md:hidden text-deep-teal hover:text-terracotta active-scale">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-16 md:pt-32 pb-24 relative">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-5 md:pr-12 relative z-10">
+<div class="relative inline-block mb-10">
+ <div class="absolute inset-0 bg-white/60 blur-[60px] rounded-full scale-[2.0] z-0"></div>
+ <img src="assets/logo/logo_transparente.png" alt="Glassitas Logo" class="relative z-10 w-64 md:w-[28rem] drop-shadow-2xl transition-transform duration-700 hover:scale-105" style="filter: drop-shadow(0 15px 25px rgba(0,75,77,0.15));">
+</div>
+<h1 class="text-5xl md:text-6xl font-serif font-bold text-deep-teal mb-6 leading-tight">Galletas Gourmet Personalizadas</h1>
+<p class="text-xl md:text-2xl font-light text-[#3f4849] tracking-wide mb-8 leading-relaxed">Diseños únicos para tus momentos especiales.</p>
+<a href="#catalogo-galletas" class="btn-premium mt-6">Explorar Catálogo</a>
+</div>
+<div class="md:col-span-7 relative translate-x-0 md:translate-x-asymmetric-offset">
+<div class="relative rounded-lg overflow-hidden ambient-shadow w-full" style="aspect-ratio: 1/1; max-width: 600px; margin: 0 auto;">
+<div class="inner-border"></div>
+<img alt="Galletas Decoradas Glassitas" class="w-full h-full object-cover product-img" src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/31026464-65ed-4d2c-919d-c1ed6fb72773.jpg"/>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Global Marquee -->
+<section id="global-marquee" class="py-12 overflow-hidden relative border-y border-terracotta/10" style="background-color: #F8DCD1;">
+ <div class="absolute top-0 bottom-0 left-0 w-24 z-10 pointer-events-none" style="background: linear-gradient(to right, #F8DCD1, transparent);"></div>
+ <div class="absolute top-0 bottom-0 right-0 w-24 z-10 pointer-events-none" style="background: linear-gradient(to left, #F8DCD1, transparent);"></div>
+ 
+ <div class="animate-scroll flex gap-6 hover:[animation-play-state:paused]">
+
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg', 'Catálogo General', 'GL-001'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-001</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg', 'Catálogo General', 'GL-002'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-002</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg', 'Catálogo General', 'GL-003'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-003</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/14396917-52d9-4685-8103-2a31c5021a75.jpg', 'Catálogo General', 'GL-004'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/14396917-52d9-4685-8103-2a31c5021a75.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-004</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg', 'Catálogo General', 'GL-005'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-005</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/23d74606-4762-4574-b9d2-deb56b51ef1c.jpg', 'Catálogo General', 'GL-006'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/23d74606-4762-4574-b9d2-deb56b51ef1c.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-006</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg', 'Catálogo General', 'GL-007'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-007</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/309f1bda-0663-4031-bcf8-39b74de860c0.jpg', 'Catálogo General', 'GL-008'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/309f1bda-0663-4031-bcf8-39b74de860c0.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-008</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/31026464-65ed-4d2c-919d-c1ed6fb72773.jpg', 'Catálogo General', 'GL-009'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/31026464-65ed-4d2c-919d-c1ed6fb72773.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-009</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/363e760c-2270-40cc-8746-7cfa50e9d480.jpg', 'Catálogo General', 'GL-010'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/363e760c-2270-40cc-8746-7cfa50e9d480.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-010</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg', 'Catálogo General', 'GL-001'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-001</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg', 'Catálogo General', 'GL-002'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-002</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg', 'Catálogo General', 'GL-003'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-003</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/14396917-52d9-4685-8103-2a31c5021a75.jpg', 'Catálogo General', 'GL-004'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/14396917-52d9-4685-8103-2a31c5021a75.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-004</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg', 'Catálogo General', 'GL-005'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-005</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/23d74606-4762-4574-b9d2-deb56b51ef1c.jpg', 'Catálogo General', 'GL-006'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/23d74606-4762-4574-b9d2-deb56b51ef1c.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-006</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg', 'Catálogo General', 'GL-007'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-007</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/309f1bda-0663-4031-bcf8-39b74de860c0.jpg', 'Catálogo General', 'GL-008'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/309f1bda-0663-4031-bcf8-39b74de860c0.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-008</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/31026464-65ed-4d2c-919d-c1ed6fb72773.jpg', 'Catálogo General', 'GL-009'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/31026464-65ed-4d2c-919d-c1ed6fb72773.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-009</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/363e760c-2270-40cc-8746-7cfa50e9d480.jpg', 'Catálogo General', 'GL-010'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/363e760c-2270-40cc-8746-7cfa50e9d480.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-010</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg', 'Catálogo General', 'GL-001'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-001</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg', 'Catálogo General', 'GL-002'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-002</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg', 'Catálogo General', 'GL-003'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-003</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/14396917-52d9-4685-8103-2a31c5021a75.jpg', 'Catálogo General', 'GL-004'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/14396917-52d9-4685-8103-2a31c5021a75.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-004</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg', 'Catálogo General', 'GL-005'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-005</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/23d74606-4762-4574-b9d2-deb56b51ef1c.jpg', 'Catálogo General', 'GL-006'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/23d74606-4762-4574-b9d2-deb56b51ef1c.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-006</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg', 'Catálogo General', 'GL-007'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-007</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/309f1bda-0663-4031-bcf8-39b74de860c0.jpg', 'Catálogo General', 'GL-008'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/309f1bda-0663-4031-bcf8-39b74de860c0.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-008</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/31026464-65ed-4d2c-919d-c1ed6fb72773.jpg', 'Catálogo General', 'GL-009'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/31026464-65ed-4d2c-919d-c1ed6fb72773.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-009</span>
+ </div>
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 280px; height: 280px;" onclick="openLightbox('assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/363e760c-2270-40cc-8746-7cfa50e9d480.jpg', 'Catálogo General', 'GL-010'); event.stopPropagation();">
+ <img src="assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/363e760c-2270-40cc-8746-7cfa50e9d480.jpg" alt="Galleta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-3 left-3 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">GL-010</span>
+ </div>
+ </div>
+</section>
+
+<!-- Galletas Diseño Personalizado -->
+<section id="catalogo-galletas" class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-24 border-t border-terracotta/10">
+<div class="mb-16 md:w-2/3">
+<h2 class="text-4xl md:text-5xl font-serif font-bold tracking-tight text-deep-teal mb-4 text-center">Galletas de Diseño Personalizado</h2>
+<p class="text-base md:text-lg font-light text-[#3f4849] tracking-wide leading-relaxed">Artesanía en cada detalle. Diseños exclusivos para bodas, bautizos y celebraciones únicas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="eventGrid"></div>
+</section>
+
+
+<!-- Mayoreo -->
+<section id="mayoreo" class="py-24 border-y border-terracotta/20 bg-surface-bright">
+ <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+ <h2 class="text-4xl md:text-5xl font-serif font-bold tracking-tight text-deep-teal mb-6">Mayoreo — Precios por Volumen</h2>
+ <p class="text-base md:text-lg font-light text-[#3f4849] tracking-wide leading-relaxed">Precios especiales para pedidos desde 100 galletas (ideal para empresas y eventos grandes)</p>
+ 
+ <div class="space-y-12 mb-12">
+ <!-- Grupo Circular / Cuadrada -->
+ <div>
+ <h3 class="text-4xl font-serif font-bold text-terracotta mb-6 border-b border-terracotta/20 pb-2">Forma Circular / Cuadrada</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+ <!-- Card 4.0 -->
+ <div class="bg-white p-6 rounded-2xl ambient-shadow border border-gray-100 hover:border-terracotta/30 transition-colors">
+ <div class="text-3xl font-bold text-deep-teal mb-1">4.0 <span class="text-lg text-on-surface-variant font-normal">cm</span></div>
+ <div class="w-8 h-1 bg-terracotta/40 mb-4 rounded-full"></div>
+ <div class="flex justify-between items-center py-2 border-b border-gray-50">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">100+ pz</span>
+ <span class="text-lg font-bold text-deep-teal">$18</span>
+ </div>
+ <div class="flex justify-between items-center py-2">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">500+ pz</span>
+ <span class="text-lg font-bold text-terracotta">$17</span>
+ </div>
+ </div>
+ <!-- Card 5.0 -->
+ <div class="bg-white p-6 rounded-2xl ambient-shadow border border-gray-100 hover:border-terracotta/30 transition-colors">
+ <div class="text-3xl font-bold text-deep-teal mb-1">5.0 <span class="text-lg text-on-surface-variant font-normal">cm</span></div>
+ <div class="w-8 h-1 bg-terracotta/40 mb-4 rounded-full"></div>
+ <div class="flex justify-between items-center py-2 border-b border-gray-50">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">100+ pz</span>
+ <span class="text-lg font-bold text-deep-teal">$23</span>
+ </div>
+ <div class="flex justify-between items-center py-2">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">500+ pz</span>
+ <span class="text-lg font-bold text-terracotta">$22</span>
+ </div>
+ </div>
+ <!-- Card 7.5 -->
+ <div class="bg-white p-6 rounded-2xl ambient-shadow border border-gray-100 hover:border-terracotta/30 transition-colors">
+ <div class="text-3xl font-bold text-deep-teal mb-1">7.5 <span class="text-lg text-on-surface-variant font-normal">cm</span></div>
+ <div class="w-8 h-1 bg-terracotta/40 mb-4 rounded-full"></div>
+ <div class="flex justify-between items-center py-2 border-b border-gray-50">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">100+ pz</span>
+ <span class="text-lg font-bold text-deep-teal">$38</span>
+ </div>
+ <div class="flex justify-between items-center py-2">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">500+ pz</span>
+ <span class="text-lg font-bold text-terracotta">$37</span>
+ </div>
+ </div>
+ <!-- Card 8.5 -->
+ <div class="bg-white p-6 rounded-2xl ambient-shadow border border-gray-100 hover:border-terracotta/30 transition-colors">
+ <div class="text-3xl font-bold text-deep-teal mb-1">8.5 <span class="text-lg text-on-surface-variant font-normal">cm</span></div>
+ <div class="w-8 h-1 bg-terracotta/40 mb-4 rounded-full"></div>
+ <div class="flex justify-between items-center py-2 border-b border-gray-50">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">100+ pz</span>
+ <span class="text-lg font-bold text-deep-teal">$43</span>
+ </div>
+ <div class="flex justify-between items-center py-2">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">500+ pz</span>
+ <span class="text-lg font-bold text-terracotta">$42</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Grupo Rectangular -->
+ <div>
+ <h3 class="text-4xl font-serif font-bold text-terracotta mb-6 border-b border-terracotta/20 pb-2">Forma Rectangular</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+ <!-- Card 6.0 x 4.5 -->
+ <div class="bg-white p-6 rounded-2xl ambient-shadow border border-gray-100 hover:border-terracotta/30 transition-colors">
+ <div class="text-3xl font-bold text-deep-teal mb-1">6<span class="text-lg font-normal mx-1">×</span>4.5 <span class="text-lg text-on-surface-variant font-normal">cm</span></div>
+ <div class="w-8 h-1 bg-terracotta/40 mb-4 rounded-full"></div>
+ <div class="flex justify-between items-center py-2 border-b border-gray-50">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">100+ pz</span>
+ <span class="text-lg font-bold text-deep-teal">$24</span>
+ </div>
+ <div class="flex justify-between items-center py-2">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">500+ pz</span>
+ <span class="text-lg font-bold text-terracotta">$23</span>
+ </div>
+ </div>
+ <!-- Card 7.5 x 5.5 -->
+ <div class="bg-white p-6 rounded-2xl ambient-shadow border border-gray-100 hover:border-terracotta/30 transition-colors">
+ <div class="text-3xl font-bold text-deep-teal mb-1">7.5<span class="text-lg font-normal mx-1">×</span>5.5 <span class="text-lg text-on-surface-variant font-normal">cm</span></div>
+ <div class="w-8 h-1 bg-terracotta/40 mb-4 rounded-full"></div>
+ <div class="flex justify-between items-center py-2 border-b border-gray-50">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">100+ pz</span>
+ <span class="text-lg font-bold text-deep-teal">$34</span>
+ </div>
+ <div class="flex justify-between items-center py-2">
+ <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">500+ pz</span>
+ <span class="text-lg font-bold text-terracotta">$33</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <p class="text-sm text-on-surface-variant">* Precios por galleta envasada individualmente, referenciales. Los precios finales dependen del diseño, cantidad y tiempos — escríbenos para tu cotización sin compromiso.</p>
+ </div>
+</section>
+
+<!-- Proceso -->
+<section id="proceso" class="py-24 bg-background">
+ <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+ 
+ <div class="bg-white p-8 rounded-lg border border-terracotta/10 ambient-shadow">
+ <span class="block text-6xl font-bold font-serif text-4xl text-terracotta opacity-60 mb-4">01</span>
+ <h4 class="text-lg font-medium font-semibold text-deep-teal mb-2">Elige y cotiza</h4>
+ <p class="text-on-surface-variant">Selecciona el evento, la forma y la cantidad, o escríbenos con tu idea por WhatsApp.</p>
+ </div>
+ 
+ <div class="bg-white p-8 rounded-lg border border-terracotta/10 ambient-shadow">
+ <span class="block text-6xl font-bold font-serif text-4xl text-terracotta opacity-60 mb-4">02</span>
+ <h4 class="text-lg font-medium font-semibold text-deep-teal mb-2">Envías tu diseño</h4>
+ <p class="text-on-surface-variant">Comparte tu logo, foto o referencia. Aprobamos juntos el diseño definitivo.</p>
+ </div>
+ 
+ <div class="bg-white p-8 rounded-lg border border-terracotta/10 ambient-shadow">
+ <span class="block text-6xl font-bold font-serif text-4xl text-terracotta opacity-60 mb-4">03</span>
+ <h4 class="text-lg font-medium font-semibold text-deep-teal mb-2">Producimos</h4>
+ <p class="text-on-surface-variant">Galletas gourmet de mantequilla con fondant e impresión en papel de azúcar.</p>
+ </div>
+ 
+ <div class="bg-white p-8 rounded-lg border border-terracotta/10 ambient-shadow">
+ <span class="block text-6xl font-bold font-serif text-4xl text-terracotta opacity-60 mb-4">04</span>
+ <h4 class="text-lg font-medium font-semibold text-deep-teal mb-2">Recibes</h4>
+ <p class="text-on-surface-variant">Envasadas individualmente para mantener el sabor hasta 6 meses. Entrega en SLP.</p>
+ </div>
+ 
+ </div>
+ </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full bg-surface-bright border-t border-terracotta/20 pt-20 pb-12 mt-20">
+ <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+ <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+ 
+ <!-- Col 1: Brand & Info -->
+ <div class="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
+ <a href="#" class="inline-block mb-6">
+ <img src="assets/logo/logo_transparente.png" alt="Glassitas" class="h-20 md:h-24 w-auto object-contain drop-shadow-md">
+ </a>
+ <p class="text-base md:text-lg font-light text-[#3f4849] tracking-wide leading-relaxed">
+ Fábrica especializada en galletas personalizadas. Artesanía en cada detalle para bodas, bautizos, empresas y celebraciones únicas.
+ </p>
+ <p class="text-on-surface-variant flex items-center justify-center md:justify-start gap-2 font-medium">
+ <span class="material-symbols-outlined text-terracotta">location_on</span>
+ San Luis Potosí, México
+ </p>
+ </div>
+
+ <!-- Col 2: Enlaces -->
+ <div class="text-center md:text-left">
+ <h4 class="font-bold text-deep-teal mb-6 uppercase tracking-wider text-sm">Explorar</h4>
+ <ul class="space-y-4">
+ <li><a href="#catalogo-galletas" class="text-on-surface-variant hover:text-terracotta transition-colors duration-200">Catálogo y Galería</a></li>
+ <li><a href="#mayoreo" class="text-on-surface-variant hover:text-terracotta transition-colors duration-200">Precios de Mayoreo</a></li>
+ <li><a href="#proceso" class="text-on-surface-variant hover:text-terracotta transition-colors duration-200">Cómo trabajamos</a></li>
+ <li><a href="preguntas-frecuentes.html" class="text-on-surface-variant hover:text-terracotta transition-colors duration-200">Preguntas Frecuentes</a></li>
+ </ul>
+ </div>
+
+ <!-- Col 3: Contacto -->
+ <div class="text-center md:text-left">
+ <h4 class="font-bold text-deep-teal mb-6 uppercase tracking-wider text-sm">Contacto</h4>
+ <ul class="space-y-4">
+ <li>
+ <a href="https://wa.me/524445101553" target="_blank" class="inline-flex items-center justify-center md:justify-start gap-2 text-on-surface-variant hover:text-[#25D366] transition-colors duration-200 font-medium">
+ <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ WhatsApp (+52 444 510 1553)
+ </a>
+ </li>
+ <li><a href="#" class="text-on-surface-variant hover:text-terracotta transition-colors duration-200">Políticas de Privacidad</a></li>
+ </ul>
+ </div>
+
+ </div>
+
+ <!-- Copyright -->
+ <div class="pt-8 border-t border-gray-200/70 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
+ <p>© 2026 Glassitas. Todos los derechos reservados.</p>
+ <p>Hecho con pasión en San Luis Potosí</p>
+ </div>
+ </div>
+</footer>
+
+<script>
+ const WA = '524445101553';
+ const FOTO_BASE = 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/';
+
+ // ===== FOTOS PROPIAS de Glassitas (se usan como miniaturas de las categorías Y como ejemplos) =====
+ const FOTOS = [
+ '0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg',
+ '02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg',
+ '031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg',
+ '14396917-52d9-4685-8103-2a31c5021a75.jpg',
+ '1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg',
+ '23d74606-4762-4574-b9d2-deb56b51ef1c.jpg',
+ '254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg',
+ '309f1bda-0663-4031-bcf8-39b74de860c0.jpg',
+ '31026464-65ed-4d2c-919d-c1ed6fb72773.jpg',
+ '363e760c-2270-40cc-8746-7cfa50e9d480.jpg'
+ ];
+
+ // ===== Fotos de referencia de Fotogalletas (categorías) — RUTAS DESDE LA RAÍZ =====
+ const REF_BASE = 'contenido/referencia_fotogalletas/categorias/';
+
+ // ===== 9 CATEGORÍAS DE EVENTO (galería) con texto explicativo adaptado =====
+ const EVENTOS = [{
+ id: 'fondant-personalizadas', nombre: 'Galletas de Fondant Personalizadas', has_frame: true,
+ foto: 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg',
+ fotos: ['assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg', 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg', 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg', 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/14396917-52d9-4685-8103-2a31c5021a75.jpg', 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg', 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/23d74606-4762-4574-b9d2-deb56b51ef1c.jpg', 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg', 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/309f1bda-0663-4031-bcf8-39b74de860c0.jpg'],
+ titulo: 'Galletas de Fondant Personalizadas',
+ texto: `<p><strong>Diseños Únicos y Artesanales en Fondant</strong></p>
+ <p>Las galletas decoradas con fondant son verdaderas obras de arte comestibles. Perfectas para cualquier temática, desde personajes infantiles (como Mario Bros) hasta diseños corporativos o detalles elegantes para bodas.</p>
+ <p>Utilizamos fondant de la más alta calidad sobre nuestras tradicionales galletas de mantequilla, logrando un equilibrio perfecto entre un diseño espectacular y un sabor inigualable.</p>`
+ },
+ {
+ id: 'baby-shower', nombre: 'Galletas de Baby Shower', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/baby_shower/img_8.jpg'],
+ titulo: 'Galletas de Baby Shower',
+ texto: `<p><strong>Galletas con foto comestible de Baby Shower</strong></p>
+ <p>Las galletas con foto comestible de Baby Shower se han convertido en una de las tendencias más encantadoras y originales para celebrar la llegada de un bebé. Estas deliciosas galletas personalizadas combinan sabor, diseño y emoción en un solo detalle, convirtiéndose en el recuerdo perfecto para invitados y familiares.</p>
+ <p>Permiten imprimir imágenes, nombres, fechas o ilustraciones temáticas directamente sobre papel de azúcar con tintas comestibles de alta calidad. Ya sea un diseño clásico en tonos pastel, una temática de ositos, elefantes o globos aerostáticos, aportan un toque único y totalmente personalizado a tu celebración.</p>
+ <p>Además de ser visualmente irresistibles, destacan por su exquisito sabor. Galletas de mantequilla danesa decoradas con fondant para mantener la calidad en presentación y textura. Son ideales para mesas de postres, recuerdos personalizados o como parte de la decoración principal.</p>
+ <p>Si buscas sorprender con un detalle dulce, elegante y memorable, las galletas de baby shower son la opción perfecta. Personaliza cada diseño y convierte un momento especial en un recuerdo inolvidable lleno de sabor y ternura.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'bautizo', nombre: 'Galletas de Bautizo', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/bautizo/img_8.jpg'],
+ titulo: 'Galletas de Bautizo',
+ texto: `<p><strong>Galletas Personalizadas con foto comestible de Bautizo</strong></p>
+ <p>Las galletas personalizadas con foto comestible de bautizo son el detalle perfecto para celebrar uno de los momentos más especiales en la vida de una familia. Combinan elegancia, sabor y personalización, convirtiéndose en un recuerdo inolvidable para padrinos, familiares y amigos.</p>
+ <p>Permiten incluir la imagen del bebé, su nombre, la fecha del evento o un diseño religioso acorde a la ocasión. Gracias a la impresión en papel de azúcar con tintas comestibles de alta calidad, cada galleta mantiene colores vivos y una excelente definición, con un acabado delicado y profesional.</p>
+ <p>Además de su atractivo visual, destacan por su delicioso sabor. Galletas de mantequilla decoradas con fondant para un toque aún más sofisticado. Son ideales como recuerdos individuales, para decorar la mesa dulce o como parte de la candy bar del evento.</p>
+ <p>Si buscas un detalle original, emotivo y totalmente personalizado, son una excelente opción. Sorprende a tus invitados con un regalo dulce que capture la esencia de este día tan significativo y convierta el bautizo en un recuerdo lleno de sabor y amor.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'comunion', nombre: 'Galletas de Comunión', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/comunion/img_8.jpg'],
+ titulo: 'Galletas de Comunión',
+ texto: `<p><strong>Galletas con foto comestible de Comunión</strong></p>
+ <p>Las galletas con foto comestible de comunión son una opción original y deliciosa para celebrar un día tan especial. Este detalle personalizado no solo endulza el evento, sino que también se convierte en un recuerdo único para los invitados que acompañan al protagonista en su Primera Comunión.</p>
+ <p>Permiten personalizar cada pieza con la imagen del niño o la niña, su nombre, la fecha de la celebración o diseños religiosos como cruces, palomas o biblias. Gracias a la impresión en papel de azúcar con tintas comestibles de alta calidad, las imágenes mantienen colores vivos y excelente definición, con un acabado profesional y elegante.</p>
+ <p>Además de su cuidada presentación, destacan por su sabor artesanal de mantequilla danesa y vainilla con una fina capa de fondant. Son perfectas para la mesa dulce, como detalle individual para los invitados o incluso como parte de la decoración temática.</p>
+ <p>Si buscas un recuerdo personalizado, dulce y significativo, son la elección ideal. Combina creatividad, calidad y sabor para hacer de la Comunión un evento inolvidable lleno de emoción y detalles especiales.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'boda', nombre: 'Galletas de Boda', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/boda/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/boda/img_8.jpg'],
+ titulo: 'Galletas de Boda',
+ texto: `<p><strong>Galletas Personalizadas con foto comestible de Boda</strong></p>
+ <p>Las galletas personalizadas con foto comestible de boda son el detalle perfecto para sorprender a tus invitados en un día tan especial. Estas galletas combinan elegancia, sabor y personalización, convirtiéndose en un recuerdo dulce y original que refleja la esencia de los novios.</p>
+ <p>Permiten incluir la imagen de la pareja, sus nombres, la fecha del enlace o un diseño romántico acorde con la temática de la celebración. Gracias a la impresión en papel de azúcar con tintas comestibles de alta calidad, cada galleta ofrece colores vibrantes y una definición impecable, logrando un acabado sofisticado y profesional.</p>
+ <p>Además de su atractivo visual, destacan por su delicioso sabor artesanal y gourmet. Galletas de mantequilla danesa, vainilla y fondant de las mejores marcas del mercado, para un toque aún más exclusivo. Son ideales como recuerdos para invitados, detalles para la mesa dulce o complementos en la decoración del banquete.</p>
+ <p>Si buscas un detalle elegante, personalizado y lleno de significado, son la elección ideal. Convierte tu boda en un evento inolvidable ofreciendo un recuerdo único que combine amor, creatividad y un sabor irresistible.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'cumpleanos', nombre: 'Galletas de Cumpleaños', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/cumpleanos/img_8.jpg'],
+ titulo: 'Galletas de Cumpleaños',
+ texto: `<p><strong>Galletas con foto comestible de Cumpleaños</strong></p>
+ <p>Las galletas con foto comestible de cumpleaños se han convertido en una tendencia imprescindible para quienes buscan un detalle creativo y totalmente personalizado. Son ideales para añadir un toque único a cualquier fiesta, ya sea infantil, juvenil o de adultos, transformando un simple dulce en un recuerdo inolvidable.</p>
+ <p>Puedes incorporar la fotografía del homenajeado, su personaje favorito, una frase especial o el diseño temático del evento. La impresión se realiza sobre papel de azúcar con tintas comestibles, garantizando una imagen definida, colores intensos y un acabado de gran calidad que destaca en la mesa de celebración.</p>
+ <p>Además de su atractivo visual, ofrecen un sabor delicioso y gourmet. Se elaboran con ingredientes seleccionados como la mantequilla danesa y la mejor vainilla de Veracruz. Son perfectas como detalle para los invitados, para complementar la mesa dulce o como parte de la decoración personalizada del evento.</p>
+ <p>Si deseas marcar la diferencia en tu próxima celebración, apuesta por las galletas de cumpleaños y sorprende a todos con un detalle original, sabroso y lleno de personalidad.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'xv', nombre: 'Galletas de XV', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/xv/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/xv/img_8.jpg'],
+ titulo: 'Galletas de XV Años',
+ texto: `<p><strong>Galletas con foto comestible de XV</strong></p>
+ <p>Las galletas con foto comestible de XV son una opción sofisticada y original para realzar la celebración de quince años. Este detalle personalizado no solo aporta un toque dulce a la fiesta, sino que también se convierte en un recuerdo especial que los invitados apreciarán y recordarán.</p>
+ <p>Permiten plasmar la fotografía de la quinceañera con su vestido y lucirlo aún más, su nombre, la fecha del evento o un diseño acorde con la temática elegida, ya sea clásica, moderna o glam. La impresión en papel de azúcar con tintas comestibles garantiza una imagen nítida, colores intensos y un acabado elegante que destaca en la mesa principal o en la candy bar.</p>
+ <p>Además de su diseño personalizado, se elaboran de forma profesional con ingredientes de la más alta calidad, ofreciendo el mejor sabor de galletas de mantequilla danesa con un toque de vainilla. Son ideales como recuerdo individual, detalle decorativo o complemento perfecto para ambientar la celebración con estilo y personalidad.</p>
+ <p>Si deseas sorprender con un detalle único y memorable, son la alternativa perfecta para combinar creatividad, elegancia y un sabor irresistible en una fecha tan especial.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'corporativo', nombre: 'Galletas con Logotipo', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/corporativo/img_8.jpg'],
+ titulo: 'Galletas con Logotipo (Corporativo)',
+ texto: `<p><strong>Galletas Promocionales con logo comestible</strong></p>
+ <p><em>Galletas con Logo Personalizado: Promociona tu Marca con Sabor</em></p>
+ <p>Las galletas con logo son una herramienta innovadora y efectiva para potenciar la visibilidad de tu marca. Personalizadas con el logotipo de tu empresa, estas galletas promocionales son ideales para eventos, campañas de marketing, ferias comerciales, conferencias y todo tipo de acciones corporativas.</p>
+ <p>Además de ser deliciosas, las galletas corporativas ayudan a generar una conexión emocional con tus clientes, socios o empleados. Úsalas como regalos empresariales, souvenirs o detalles personalizados para reforzar tu identidad.</p>
+ <ul style="margin:10px 0 12px 20px;color:var(--text);">
+ <li>Refuerzan tu imagen corporativa.</li>
+ <li>Son memorables y 100% personalizables.</li>
+ <li>Se adaptan a cualquier tipo de evento o campaña.</li>
+ <li>Una forma original de destacar frente a la competencia.</li>
+ </ul>
+ <p>Si buscas una forma creativa, sabrosa y visualmente impactante de representar tu marca, las galletas con logo son la opción perfecta. Solicita tu pedido personalizado y convierte cada bocado en una experiencia de marca.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'institucional', nombre: 'Galletas Institucionales', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/institucion/img_8.jpg'],
+ titulo: 'Galletas Institucionales',
+ texto: `<p><strong>Galletas con logo comestible para Instituciones</strong></p>
+ <p>Las galletas con logo comestible para instituciones son una excelente opción para fortalecer la identidad corporativa y sorprender en eventos empresariales, académicos o institucionales. Este detalle personalizado combina marketing, creatividad y sabor, convirtiéndose en una herramienta original para promocionar tu marca.</p>
+ <p>Permiten imprimir el logotipo, eslogan o imagen representativa en papel de azúcar con tintas comestibles de alta calidad. El resultado es una galleta con colores definidos, excelente resolución y un acabado profesional que refuerza la presencia visual de la institución en cualquier tipo de evento.</p>
+ <p>Son ideales para congresos, ferias, aniversarios, inauguraciones, graduaciones o celebraciones internas. Además de su atractivo visual, se elaboran con ingredientes seleccionados y son gourmet, adaptándose al paladar más selecto.</p>
+ <p>Si buscas una forma innovadora de promocionar tu organización, son el detalle perfecto. Refuerza tu imagen de marca con un producto personalizado, elegante y delicioso que dejará una impresión positiva y duradera en cada invitado.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'graduacion', nombre: 'Galletas de Graduación', foto: 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_1.jpg',
+ fotos: ['assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_1.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_2.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_3.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_4.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_5.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_6.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_7.jpg', 'assets/productos/con_marco_blanco/galerias_con_marco/graduacion/img_8.jpg'],
+ titulo: 'Galletas de Graduación',
+ texto: `<p><strong>Galletas con foto comestible de Graduación</strong></p>
+ <p>Las galletas con foto comestible de graduación son el detalle perfecto para celebrar un logro académico tan importante. Este dulce personalizado no solo endulza la fiesta, sino que también se convierte en un recuerdo único para familiares, amigos y compañeros que comparten este momento especial.</p>
+ <p>Puedes incluir la fotografía del graduado, su nombre, la fecha del evento o elementos alusivos como birretes y diplomas. La impresión se realiza en papel de azúcar con tintas comestibles de alta calidad, garantizando colores vibrantes, excelente definición y un acabado profesional que destaca en cualquier mesa dulce.</p>
+ <p>Además de su atractivo visual, se elaboran de manera artesanal con ingredientes seleccionados, ofreciendo el sabor de la galleta de mantequilla con un toque de vainilla. Son ideales como recuerdo personalizado para los invitados, detalle decorativo en la celebración o complemento perfecto para la candy bar.</p>
+ <p>Si deseas sorprender con un detalle original y significativo, son la mejor opción. Combina creatividad, calidad y sabor para hacer de la graduación un evento inolvidable lleno de orgullo y dulzura.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ }
+ ];
+
+ // ===== Catálogo por FORMA (base de precios) =====
+ const FORMAS = [
+ { id: 'circular', nombre: 'Circulares', verbo: 'circulares' },
+ { id: 'cuadrada', nombre: 'Cuadradas', verbo: 'cuadradas' },
+ { id: 'rectangular', nombre: 'Rectangulares', verbo: 'rectangulares' },
+ { id: 'corazon', nombre: 'Corazón', verbo: 'en forma de corazón' }
+ ];
+
+ const PRODUCTOS = {
+ circular: [
+ { talla: '4.0 cm', precio: 19, img: FOTO_BASE + FOTOS[0] },
+ { talla: '5.0 cm', precio: 24, img: FOTO_BASE + FOTOS[3] },
+ { talla: '7.5 cm', precio: 38, img: FOTO_BASE + FOTOS[1] },
+ { talla: '8.5 cm', precio: 43, img: FOTO_BASE + FOTOS[4] }
+ ],
+ cuadrada: [
+ { talla: '4.0 cm', precio: 19, img: FOTO_BASE + FOTOS[2] },
+ { talla: '5.0 cm', precio: 24, img: FOTO_BASE + FOTOS[4] },
+ { talla: '5.3 cm', precio: 24, img: FOTO_BASE + FOTOS[6] },
+ { talla: '8.5 cm', precio: 43, img: FOTO_BASE + FOTOS[7] }
+ ],
+ rectangular: [
+ { talla: '6.0 × 4.5 cm', precio: 25, img: FOTO_BASE + FOTOS[8] },
+ { talla: '7.5 × 5.5 cm', precio: 35, img: FOTO_BASE + FOTOS[9] }
+ ],
+ corazon: [
+ { talla: '7 × 7 cm', precio: 35, img: FOTO_BASE + FOTOS[5] },
+ { talla: '8 × 8 cm', precio: 39, img: FOTO_BASE + FOTOS[0] }
+ ]
+ };
+
+ let eventoActivo = null;
+ let formaActiva = 'circular';
+ let tallaActiva = null;
+
+ // ===== Render de la galería de eventos =====
+ function renderEventos() {
+ const grid = document.getElementById('eventGrid');
+ if (!grid) return;
+ grid.innerHTML = EVENTOS.map(e => {
+ const isExpanded = (e.id === eventoActivo);
+ let expandHtml = '';
+ if (isExpanded) {
+ const waMsg = encodeURIComponent(`Hola Glassitas! Quiero cotizar galletas de ${e.nombre}. ¿Me pueden dar precios y tiempos?`);
+ const ejemplos = (e.fotos || []);
+ const allItems = [...ejemplos, ...ejemplos];
+ const galleryHtml = allItems.map((f, index) => {
+ const originalIndex = index % ejemplos.length;
+ const code = 'GL-' + String(originalIndex + 1).padStart(3, '0');
+ return `
+ <div class="cursor-pointer relative rounded-2xl overflow-hidden ambient-shadow flex-shrink-0" style="width: 250px; height: 250px;" onclick=\"openLightbox('${f}', '${e.nombre}', '${code}'); event.stopPropagation();\">
+ <img src="${f}" alt="${e.nombre}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="absolute top-2 left-2 bg-deep-teal/90 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm z-20">${code}</span>
+ </div>
+ `;
+ }).join('');
+ 
+ expandHtml = `
+ <div class="expand-body" onclick="event.stopPropagation()">
+ <div class="flex justify-between items-start mb-4">
+ <h3 class="text-4xl font-serif font-bold text-deep-teal">${e.titulo}</h3>
+ <button class="text-terracotta hover:text-deep-teal transition-colors" onclick="selectEvento('${e.id}'); event.stopPropagation();">
+ <span class="material-symbols-outlined text-3xl">close</span>
+ </button>
+ </div>
+ <div class="text-base text-on-surface-variant space-y-4">
+ ${e.texto}
+ </div>
+ <div class="overflow-hidden relative w-full mt-6 -mx-2 px-2 py-2">
+ <!-- Fade edges -->
+ <div class="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-[#F9F7F2] to-transparent z-10 pointer-events-none"></div>
+ <div class="absolute top-0 bottom-0 right-0 w-8 bg-gradient-to-l from-[#F9F7F2] to-transparent z-10 pointer-events-none"></div>
+ 
+ <div class="animate-infinite-scroll flex w-max gap-4 hover:[animation-play-state:paused]">
+ ${galleryHtml}
+ </div>
+ </div>
+ <a class="btn-premium mt-4 w-full text-center" href="https://wa.me/${WA}?text=${waMsg}" target="_blank">Cotizar ${e.nombre} por WhatsApp</a>
+ </div>
+ `;
+ }
+ 
+ return `
+ <div class="product-card group ${isExpanded ? 'expanded md:col-span-full cursor-default' : 'cursor-pointer hover:scale-[0.98]'} relative p-2 md:p-3 bg-white/5 ring-1 ring-black/5 rounded-[2.5rem] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]" onclick="selectEvento('${e.id}')"><div class="relative w-full h-full bg-white rounded-[calc(2.5rem-0.75rem)] p-4 md:p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] flex flex-col justify-between">
+ <div class="relative w-full rounded-xl overflow-hidden ambient-shadow mb-6 ${isExpanded ? 'hidden' : 'block'}" style="aspect-ratio: 1/1;">
+ <div class="inner-border"></div>
+ <img alt="${e.nombre}" class="w-full h-full object-cover product-img transition-transform duration-500 group-hover:scale-105" src="${e.foto}" loading="lazy"/>
+ 
+ </div>
+ <h3 class="text-2xl md:text-4xl font-serif font-bold leading-tight text-deep-teal mb-3 group-hover:text-terracotta transition-colors active-scale">${e.nombre}</h3>
+ <p class="text-base text-on-surface-variant">${isExpanded ? 'Cerrar detalles' : 'Ver descripción y ejemplos'}</p>
+ ${expandHtml}
+ </div></div>`;
+ }).join('');
+ }
+
+ function selectEvento(id) {
+ if (eventoActivo === id) {
+ eventoActivo = null; // Cierra la tarjeta si se da clic de nuevo
+ } else {
+ eventoActivo = id;
+ }
+ renderEventos();
+ 
+ if (eventoActivo) {
+ setTimeout(() => {
+ const activeEl = document.querySelector('.product-card.expanded');
+ if (activeEl) {
+ const yOffset = -20; 
+ const y = activeEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+ window.scrollTo({top: y, behavior: 'smooth'});
+ }
+ }, 10);
+ }
+ }
+
+ function cotizarEjemplo(nombreEvento) {
+ const msg = encodeURIComponent(`Hola Glassitas! Vi un ejemplo de ${nombreEvento} en su tienda y me gustaría cotizar algo similar para mi evento.`);
+ window.open(`https://wa.me/${WA}?text=${msg}`, '_blank');
+ }
+
+ // ===== Render de formas =====
+ function renderFormas() {
+ const grid = document.getElementById('shapeGrid');
+ grid.innerHTML = FORMAS.map(f => `
+ <div class="shape-card ${f.id === formaActiva ? 'active' : ''}" onclick="selectForma('${f.id}')">
+ <span class="ico">${f.ico}</span>
+ <h3 class="text-3xl font-serif font-bold text-deep-teal mb-2">${f.nombre}</h3>
+ <p>${PRODUCTOS[f.id].length} tallas</p>
+ </div>`).join('');
+ }
+
+ function selectForma(id) {
+ formaActiva = id;
+ tallaActiva = null;
+ renderFormas();
+ renderTallas();
+ renderProductos();
+ }
+
+ function renderTallas() {
+ const chips = document.getElementById('tallaChips');
+ const tallas = [...new Set(PRODUCTOS[formaActiva].map(p => p.talla))];
+ chips.innerHTML = `<span class="talla-chip">Ver todas</span>` +
+ tallas.map(t => `<span class="talla-chip ${tallaActiva === t ? 'active' : ''}" onclick="selectTalla('${t}')">${t}</span>`).join('');
+ chips.querySelectorAll('.talla-chip')[0].onclick = () => { tallaActiva = null; renderTallas(); renderProductos(); };
+ }
+
+ function selectTalla(t) {
+ tallaActiva = t;
+ renderTallas();
+ renderProductos();
+ }
+
+ function renderProductos() {
+ const grid = document.getElementById('productGrid');
+ const formaInfo = FORMAS.find(f => f.id === formaActiva);
+ const items = PRODUCTOS[formaActiva].filter(p => !tallaActiva || p.talla === tallaActiva);
+ document.getElementById('catTitle').textContent = `Galletas ${formaInfo.nombre}`;
+ document.getElementById('catSub').textContent = `${items.length} tallas · Precio por galleta`;
+
+ const contexto = eventoActivo ? EVENTOS.find(e => e.id === eventoActivo).nombre : 'tu evento';
+ grid.innerHTML = items.map((prod, i) => {
+ const msg = encodeURIComponent(
+ `Hola Glassitas! Quiero cotizar galletas ${formaInfo.verbo} de ${prod.talla} para ${contexto}. ¿Me pueden dar precios?`
+ );
+ const wa = `https://wa.me/${WA}?text=${msg}`;
+ return `
+ <div class="product-card group relative p-2 md:p-3 bg-white/5 ring-1 ring-black/5 rounded-[2.5rem] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[0.98]"><div class="relative w-full h-full bg-white rounded-[calc(2.5rem-0.75rem)] p-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] flex flex-col justify-between">
+ <div class="thumb"><img src="${prod.img}" alt="Galletas ${formaInfo.verbo} ${prod.talla}" loading="lazy"></div>
+ <div class="body">
+ <div class="text-lg md:text-xl font-serif font-bold text-deep-teal mb-1 leading-tight">${formaInfo.nombre} <br class="hidden md:block"> <span class="text-terracotta text-sm md:text-base">${prod.talla}</span></div>
+ <div class="text-sm font-medium text-on-surface-variant mb-4">${formaInfo.verbo} personalizadas</div>
+ <span class="ref-label">Precio referencia</span>
+ <div class="price">$${prod.precio} <small style="font-size:0.7rem;color:var(--text-muted);font-weight:500;">/ galleta</small></div>
+ <div class="qty-row">
+ <label style="font-size:0.82rem;color:var(--text-muted);">Cantidad</label>
+ <input class="qty-input" id="qty_${formaActiva}_${i}" type="number" min="1" value="20">
+ </div>
+ <a class="btn-premium !bg-[#25D366] hover:!bg-[#1EBE5A] w-full text-center mt-auto" href="${wa}" target="_blank">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ Cotizar por WhatsApp
+ </a>
+ </div>
+ </div></div>`;
+ }).join('');
+ }
+
+ // init
+ renderEventos();
+ renderFormas();
+ renderTallas();
+ renderProductos();
+ document.addEventListener("DOMContentLoaded", () => { renderEventos(); });
+</script>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden flex-col justify-center items-center p-4 md:p-8 backdrop-blur-md transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+ <button class="absolute top-4 right-4 md:top-8 md:right-8 text-white hover:text-terracotta transition-colors active-scale" onclick="closeLightbox(); event.stopPropagation();">
+ <span class="material-symbols-outlined text-4xl">close</span>
+ </button>
+ <img id="lightbox-img" src="" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl mb-6 border-4 border-white" onclick="event.stopPropagation();">
+ <div class="text-center" onclick="event.stopPropagation();">
+ <h3 id="lightbox-title" class="text-white text-2xl font-serif font-bold mb-4"></h3>
+ <a id="lightbox-wa" href="#" target="_blank" class="inline-flex items-center justify-center bg-[#25D366] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-deep-teal transition-all text-lg active-scale">
+ <img src="assets/logo/WhatsApp.svg.webp" class="w-6 h-6 mr-3">
+ Cotizar este diseño
+ </a>
+ </div>
+</div>
+
+<script>
+function openLightbox(imgSrc, nombreEvento, code) {
+ const lightbox = document.getElementById('lightbox');
+ const lightboxImg = document.getElementById('lightbox-img');
+ const lightboxWa = document.getElementById('lightbox-wa');
+ const lightboxTitle = document.getElementById('lightbox-title');
+ 
+ lightboxImg.src = imgSrc;
+ lightboxTitle.textContent = `${nombreEvento} (${code})`;
+ const msg = encodeURIComponent(`Hola Glassitas! Vi el diseño ${code} de ${nombreEvento} en su galería y me gustaría cotizar algo similar.`);
+ lightboxWa.href = `https://wa.me/524445101553?text=${msg}`;
+ 
+ lightbox.classList.remove('hidden');
+ lightbox.classList.add('flex');
+ setTimeout(() => {
+ lightbox.classList.remove('opacity-0');
+ }, 10);
+ 
+ document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+ const lightbox = document.getElementById('lightbox');
+ lightbox.classList.add('opacity-0');
+ setTimeout(() => {
+ lightbox.classList.add('hidden');
+ lightbox.classList.remove('flex');
+ document.body.style.overflow = '';
+ }, 300);
+}
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@
    - Descripción: Galletas decoradas artesanales para tus eventos especiales. XV años, baby showers, bodas y más. 🍪 San Luis Potosí.
    - Horario: Lunes a Domingo
    - Ubicación: San Luis Potosí, SLP
-   - WhatsApp: +52 444 650 6790
+   - WhatsApp: +52 4445 101 553
    - Sitio web: https://pmailprueba-apps.github.io/glassitas/
 
 ## 2. Configurar Instagram Business

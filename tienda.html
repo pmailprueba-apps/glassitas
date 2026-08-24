@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tienda Glassitas — Galletas Decoradas Personalizadas por Evento</title>
+ <meta name="description" content="Catálogo de galletas decoradas personalizadas de Glassitas por evento: baby shower, bautizo, comunión, boda, cumpleaños, XV años, logotipo, institucional y graduación. Aceptamos pedidos por WhatsApp en San Luis Potosí.">
+ 
+ 
+ 
+ <link rel="icon" type="image/png" href="favicon.png">
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Gabriela&display=swap" rel="stylesheet"/>
+<style>
+        .tactile-btn {
+            transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            will-change: transform;
+        }
+        .tactile-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 3px 3px 0px 0px #C46231;
+        }
+        .tactile-btn:active {
+            transform: scale(0.97) translate(0px, 0px) !important;
+            box-shadow: 0px 0px 0px 0px #C46231 !important;
+        }
+        
+        .product-card {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+        .product-card:hover {
+            transform: scale(1.02);
+        }
+        .product-card:active {
+            transform: scale(0.98);
+        }
+        
+        .lightbox-anim {
+            transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        a, button {
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+            transition-duration: 0.2s !important;
+        }
+        
+        .active-scale:active {
+            transform: scale(0.97) !important;
+        }
+
+        .inner-border {
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(196, 98, 49, 0.4);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .product-img {
+            transition: transform 0.5s ease;
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 75, 77, 0.08);
+        }
+
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #004B4D;
+            color: #ffffff;
+            padding: 0.875rem 2.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 10px 20px -5px rgba(0, 75, 77, 0.25);
+            transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+            text-decoration: none;
+        }
+        .btn-premium:hover {
+            background-color: #00383a;
+            box-shadow: 0 15px 25px -5px rgba(0, 75, 77, 0.35);
+            transform: translateY(-2px);
+        }
+        .btn-premium:active {
+            transform: scale(0.97) translateY(0);
+            box-shadow: 0 4px 6px -1px rgba(0, 75, 77, 0.2);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 30s linear infinite;
+            display: inline-flex;
+            width: max-content;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+</style>
+
+</head>
+
+
+<body>
+<!-- Faint Background Image -->
+<div class="fixed inset-0 z-[-1] bg-[url('../assets/background.jpeg')] bg-cover bg-center bg-no-repeat opacity-[0.20] pointer-events-none"></div>
+
+
+ <nav>
+ <div class="container">
+ <a href="#inicio" class="nav-logo">Tienda Glassitas</a>
+ <ul class="nav-links">
+ <li><a href="index.html">Inicio</a></li>
+ <li><a href="#galeria">Galería</a></li>
+ <li><a href="#mayoreo">Mayoreo</a></li>
+ <li><a href="#proceso">Proceso</a></li>
+ <li><a href="preguntas-frecuentes.html">Preguntas</a></li>
+ <li><a class="nav-wa" href="https://wa.me/524445101553?text=Hola%20Glassitas%21%20Quiero%20cotizar%20galletas%20personalizadas" target="_blank">WhatsApp</a></li>
+ </ul>
+ </div>
+ </nav>
+
+ <!-- Hero -->
+ <section class="hero" id="inicio">
+ <div class="container">
+ <h1>Galletas decoradas <span>a tu medida</span></h1>
+ <p>Explora por evento, elige la forma y el tamaño. Tú nos compartes tu idea, logo o fotografía y la convertimos en una galleta gourmet personalizada.</p>
+ <span class="legend">Precios de referencia por galleta · Pedido mínimo 20</span>
+ <div style="margin-top:20px;">
+ <a href="preguntas-frecuentes.html" class="nav-wa" style="background:var(--gold);">❓ Preguntas frecuentes</a>
+ </div>
+ </div>
+ </section>
+
+ <!-- GALERÍA · 9 categorías de evento (acordeón expandible) -->
+ <section class="galeria" id="galeria">
+ <div class="container">
+ <div class="section-head">
+ <h2>Galería por evento</h2>
+ <p>Haz clic en una categoría para abrir su descripción y las galletas que puedes pedir.</p>
+ </div>
+ <div class="event-grid" id="eventGrid"></div>
+ </div>
+ </section>
+
+ <!-- Formas -->
+ <section class="shapes">
+ <div class="container">
+ <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:4px;">Selecciona la forma de tu galleta</h2>
+ <p style="color:var(--text-muted);font-size:0.9rem;">Aplica a cualquier categoría de tu evento</p>
+ <div class="shape-grid" id="shapeGrid"></div>
+ </div>
+ </section>
+
+ <!-- Catalogo de productos por forma -->
+ <section class="catalog" id="catalogo">
+ <div class="container">
+ <div class="section-title">
+ <h2 id="catTitle" style="font-family:'Playfair Display',serif;font-size:1.7rem;">Tallas disponibles</h2>
+ <p id="catSub" style="color:var(--text-muted);font-size:0.9rem;">Elige tamaño y cantidad · Botón envía tu cotización por WhatsApp</p>
+ </div>
+ <div class="botones-talla" id="tallaChips"></div>
+ <div class="product-grid" id="productGrid"></div>
+ </div>
+ </section>
+
+ <!-- Mayoreo -->
+ <section class="mayoreo" id="mayoreo">
+ <div class="container">
+ <h2 style="font-family:'Playfair Display',serif;font-size:1.7rem;">Mayoreo — precios por volumen</h2>
+ <p style="color:var(--text-muted);font-size:0.92rem;">Precios especiales para pedidos desde 100 galletas (ideal para empresas y eventos grandes)</p>
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr><th>Forma</th><th>Tamaño</th><th>100+ unidades</th><th>500+ unidades</th><th>1000+ unidades</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>Circular / Cuadrada</td><td class="tall">4.0 cm</td><td>$18</td><td>$17</td><td>$16</td></tr>
+ <tr><td>Circular / Cuadrada</td><td class="tall">5.0 cm</td><td>$23</td><td>$22</td><td>$21</td></tr>
+ <tr><td>Circular / Cuadrada</td><td class="tall">7.5 cm</td><td>$38</td><td>$37</td><td>$36</td></tr>
+ <tr><td>Circular / Cuadrada</td><td class="tall">8.5 cm</td><td>$43</td><td>$42</td><td>$41</td></tr>
+ <tr><td>Rectangular</td><td class="tall">6.0 × 4.5 cm</td><td>$24</td><td>$23</td><td>$22</td></tr>
+ <tr><td>Rectangular</td><td class="tall">7.5 × 5.5 cm</td><td>$34</td><td>$33</td><td>$32</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="mayoreo-note">* Precios por galleta envasada individualmente, referenciales. Los precios finales dependen del diseño, cantidad y tiempos — escríbenos para tu cotización sin compromiso.</p>
+ </div>
+ </section>
+
+ <!-- Proceso -->
+ <section style="padding:28px 0;" id="proceso">
+ <div class="container">
+ <div class="info-cards">
+ <div class="info-card"><span class="num">01</span><h4>Elige y cotiza</h4><p>Selecciona el evento, la forma y la cantidad, o escríbenos con tu idea por WhatsApp.</p></div>
+ <div class="info-card"><span class="num">02</span><h4>Envías tu diseño</h4><p>Comparte tu logo, foto o referencia. Aprobamos juntos el diseño definitivo.</p></div>
+ <div class="info-card"><span class="num">03</span><h4>Producimos</h4><p>Galletas gourmet de mantequilla con fondant e impresión en papel de azúcar.</p></div>
+ <div class="info-card"><span class="num">04</span><h4>Recibes</h4><p>Envasadas individualmente para mantener el sabor hasta 6 meses. Entrega en SLP.</p></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="cta-final">
+ <div class="container">
+ <h2>¿Listo para tu cotización?</h2>
+ <p>Cuéntanos tu evento (boda, XV años, baby shower, bautizo, corporativo) y te enviamos precios y tiempos sin compromiso.</p>
+ <a class="btn-white" href="https://wa.me/524445101553?text=Hola%20Glassitas%21%20Quiero%20cotizar%20galletas%20personalizadas" target="_blank">Cotizar por WhatsApp</a>
+ </div>
+ </section>
+
+ <footer>
+ <p>© 2026 Glassitas — Galletas decoradas artesanales · San Luis Potosí, México</p>
+ <p><a href="index.html">Inicio</a> · <a href="tienda.html">Tienda</a> · <a href="preguntas-frecuentes.html">Preguntas frecuentes</a> · WhatsApp: <a href="https://wa.me/524445101553" target="_blank">+52 444 510 1553</a> · <a href="https://instagram.com/glassitas" target="_blank">Instagram</a></p>
+ </footer>
+
+ <div class="disclaimer">Precios mostrados como referencia comercial de mercado. Cada pedido es personalizado — la cotización definitiva se confirma por WhatsApp.</div>
+
+ <div class="wa-sticky">
+ <a href="https://wa.me/524445101553?text=Hola%20Glassitas%21%20Quiero%20cotizar%20galletas%20personalizadas" target="_blank">💬 Cotizar por WhatsApp</a>
+ </div>
+
+ <script>
+ const WA = '524445101553';
+ const FOTO_BASE = 'assets/productos/con_marco_blanco/1_1_Cuadrado_1080x1080/';
+
+ // ===== FOTOS PROPIAS de Glassitas (se usan como miniaturas de las categorías Y como ejemplos) =====
+ const FOTOS = [
+ '0047ac48-1662-4bcc-88b1-e547cdc92e8e.jpg',
+ '02ccee75-86e6-4cc2-8073-1cf83f97864f.jpg',
+ '031d1e47-9588-46e2-b91e-6e3f4ba6817f.jpg',
+ '14396917-52d9-4685-8103-2a31c5021a75.jpg',
+ '1909b3fb-431a-43d7-bdcd-7b6213712a26.jpg',
+ '23d74606-4762-4574-b9d2-deb56b51ef1c.jpg',
+ '254d1177-ee18-4db0-8807-a42c1e5ce8b3.jpg',
+ '309f1bda-0663-4031-bcf8-39b74de860c0.jpg',
+ '31026464-65ed-4d2c-919d-c1ed6fb72773.jpg',
+ '363e760c-2270-40cc-8746-7cfa50e9d480.jpg'
+ ];
+
+ // ===== Fotos de referencia de Fotogalletas (categorías) — RUTAS DESDE LA RAÍZ =====
+ const REF_BASE = 'contenido/referencia_fotogalletas/categorias/';
+
+ // ===== 9 CATEGORÍAS DE EVENTO (galería) con texto explicativo adaptado =====
+ const EVENTOS = [
+ {
+ id: 'baby-shower', nombre: 'Galletas de Baby Shower', ico: '🍼',
+ foto: REF_BASE + 'baby_shower/img_1.jpg',
+ fotos: ['baby_shower/img_1.jpg','baby_shower/img_2.jpg','baby_shower/img_3.jpg','baby_shower/img_4.jpg','baby_shower/img_5.jpg','baby_shower/img_6.jpg','baby_shower/img_7.jpg','baby_shower/img_8.jpg'],
+ titulo: 'Galletas de Baby Shower',
+ texto: `<p><strong>Galletas con foto comestible de Baby Shower</strong></p>
+ <p>Las galletas con foto comestible de Baby Shower se han convertido en una de las tendencias más encantadoras y originales para celebrar la llegada de un bebé. Estas deliciosas galletas personalizadas combinan sabor, diseño y emoción en un solo detalle, convirtiéndose en el recuerdo perfecto para invitados y familiares.</p>
+ <p>Permiten imprimir imágenes, nombres, fechas o ilustraciones temáticas directamente sobre papel de azúcar con tintas comestibles de alta calidad. Ya sea un diseño clásico en tonos pastel, una temática de ositos, elefantes o globos aerostáticos, aportan un toque único y totalmente personalizado a tu celebración.</p>
+ <p>Además de ser visualmente irresistibles, destacan por su exquisito sabor. Galletas de mantequilla danesa decoradas con fondant para mantener la calidad en presentación y textura. Son ideales para mesas de postres, recuerdos personalizados o como parte de la decoración principal.</p>
+ <p>Si buscas sorprender con un detalle dulce, elegante y memorable, las galletas de baby shower son la opción perfecta. Personaliza cada diseño y convierte un momento especial en un recuerdo inolvidable lleno de sabor y ternura.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'bautizo', nombre: 'Galletas de Bautizo', ico: '✝️',
+ foto: REF_BASE + 'bautizo/img_1.jpg',
+ fotos: ['bautizo/img_1.jpg','bautizo/img_2.jpg','bautizo/img_3.jpg','bautizo/img_4.jpg','bautizo/img_5.jpg','bautizo/img_6.jpg','bautizo/img_7.jpg','bautizo/img_8.jpg'],
+ titulo: 'Galletas de Bautizo',
+ texto: `<p><strong>Galletas Personalizadas con foto comestible de Bautizo</strong></p>
+ <p>Las galletas personalizadas con foto comestible de bautizo son el detalle perfecto para celebrar uno de los momentos más especiales en la vida de una familia. Combinan elegancia, sabor y personalización, convirtiéndose en un recuerdo inolvidable para padrinos, familiares y amigos.</p>
+ <p>Permiten incluir la imagen del bebé, su nombre, la fecha del evento o un diseño religioso acorde a la ocasión. Gracias a la impresión en papel de azúcar con tintas comestibles de alta calidad, cada galleta mantiene colores vivos y una excelente definición, con un acabado delicado y profesional.</p>
+ <p>Además de su atractivo visual, destacan por su delicioso sabor. Galletas de mantequilla decoradas con fondant para un toque aún más sofisticado. Son ideales como recuerdos individuales, para decorar la mesa dulce o como parte de la candy bar del evento.</p>
+ <p>Si buscas un detalle original, emotivo y totalmente personalizado, son una excelente opción. Sorprende a tus invitados con un regalo dulce que capture la esencia de este día tan significativo y convierta el bautizo en un recuerdo lleno de sabor y amor.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'comunion', nombre: 'Galletas de Comunión', ico: '🕊️',
+ foto: REF_BASE + 'comunion/img_1.jpg',
+ fotos: ['comunion/img_1.jpg','comunion/img_2.jpg','comunion/img_3.jpg','comunion/img_4.jpg','comunion/img_5.jpg','comunion/img_6.jpg','comunion/img_7.jpg','comunion/img_8.jpg'],
+ titulo: 'Galletas de Comunión',
+ texto: `<p><strong>Galletas con foto comestible de Comunión</strong></p>
+ <p>Las galletas con foto comestible de comunión son una opción original y deliciosa para celebrar un día tan especial. Este detalle personalizado no solo endulza el evento, sino que también se convierte en un recuerdo único para los invitados que acompañan al protagonista en su Primera Comunión.</p>
+ <p>Permiten personalizar cada pieza con la imagen del niño o la niña, su nombre, la fecha de la celebración o diseños religiosos como cruces, palomas o biblias. Gracias a la impresión en papel de azúcar con tintas comestibles de alta calidad, las imágenes mantienen colores vivos y excelente definición, con un acabado profesional y elegante.</p>
+ <p>Además de su cuidada presentación, destacan por su sabor artesanal de mantequilla danesa y vainilla con una fina capa de fondant. Son perfectas para la mesa dulce, como detalle individual para los invitados o incluso como parte de la decoración temática.</p>
+ <p>Si buscas un recuerdo personalizado, dulce y significativo, son la elección ideal. Combina creatividad, calidad y sabor para hacer de la Comunión un evento inolvidable lleno de emoción y detalles especiales.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'boda', nombre: 'Galletas de Boda', ico: '💍',
+ foto: REF_BASE + 'boda/img_1.jpg',
+ fotos: ['boda/img_1.jpg','boda/img_2.jpg','boda/img_3.jpg','boda/img_4.jpg','boda/img_5.jpg','boda/img_6.jpg','boda/img_7.jpg','boda/img_8.jpg'],
+ titulo: 'Galletas de Boda',
+ texto: `<p><strong>Galletas Personalizadas con foto comestible de Boda</strong></p>
+ <p>Las galletas personalizadas con foto comestible de boda son el detalle perfecto para sorprender a tus invitados en un día tan especial. Estas galletas combinan elegancia, sabor y personalización, convirtiéndose en un recuerdo dulce y original que refleja la esencia de los novios.</p>
+ <p>Permiten incluir la imagen de la pareja, sus nombres, la fecha del enlace o un diseño romántico acorde con la temática de la celebración. Gracias a la impresión en papel de azúcar con tintas comestibles de alta calidad, cada galleta ofrece colores vibrantes y una definición impecable, logrando un acabado sofisticado y profesional.</p>
+ <p>Además de su atractivo visual, destacan por su delicioso sabor artesanal y gourmet. Galletas de mantequilla danesa, vainilla y fondant de las mejores marcas del mercado, para un toque aún más exclusivo. Son ideales como recuerdos para invitados, detalles para la mesa dulce o complementos en la decoración del banquete.</p>
+ <p>Si buscas un detalle elegante, personalizado y lleno de significado, son la elección ideal. Convierte tu boda en un evento inolvidable ofreciendo un recuerdo único que combine amor, creatividad y un sabor irresistible.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'cumpleanos', nombre: 'Galletas de Cumpleaños', ico: '🎂',
+ foto: REF_BASE + 'cumpleanos/img_1.jpg',
+ fotos: ['cumpleanos/img_1.jpg','cumpleanos/img_2.jpg','cumpleanos/img_3.jpg','cumpleanos/img_4.jpg','cumpleanos/img_5.jpg','cumpleanos/img_6.jpg','cumpleanos/img_7.jpg','cumpleanos/img_8.jpg'],
+ titulo: 'Galletas de Cumpleaños',
+ texto: `<p><strong>Galletas con foto comestible de Cumpleaños</strong></p>
+ <p>Las galletas con foto comestible de cumpleaños se han convertido en una tendencia imprescindible para quienes buscan un detalle creativo y totalmente personalizado. Son ideales para añadir un toque único a cualquier fiesta, ya sea infantil, juvenil o de adultos, transformando un simple dulce en un recuerdo inolvidable.</p>
+ <p>Puedes incorporar la fotografía del homenajeado, su personaje favorito, una frase especial o el diseño temático del evento. La impresión se realiza sobre papel de azúcar con tintas comestibles, garantizando una imagen definida, colores intensos y un acabado de gran calidad que destaca en la mesa de celebración.</p>
+ <p>Además de su atractivo visual, ofrecen un sabor delicioso y gourmet. Se elaboran con ingredientes seleccionados como la mantequilla danesa y la mejor vainilla de Veracruz. Son perfectas como detalle para los invitados, para complementar la mesa dulce o como parte de la decoración personalizada del evento.</p>
+ <p>Si deseas marcar la diferencia en tu próxima celebración, apuesta por las galletas de cumpleaños y sorprende a todos con un detalle original, sabroso y lleno de personalidad.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'xv', nombre: 'Galletas de XV', ico: '👑',
+ foto: REF_BASE + 'xv/img_1.jpg',
+ fotos: ['xv/img_1.jpg','xv/img_2.jpg','xv/img_3.jpg','xv/img_4.jpg','xv/img_5.jpg','xv/img_6.jpg','xv/img_7.jpg','xv/img_8.jpg'],
+ titulo: 'Galletas de XV Años',
+ texto: `<p><strong>Galletas con foto comestible de XV</strong></p>
+ <p>Las galletas con foto comestible de XV son una opción sofisticada y original para realzar la celebración de quince años. Este detalle personalizado no solo aporta un toque dulce a la fiesta, sino que también se convierte en un recuerdo especial que los invitados apreciarán y recordarán.</p>
+ <p>Permiten plasmar la fotografía de la quinceañera con su vestido y lucirlo aún más, su nombre, la fecha del evento o un diseño acorde con la temática elegida, ya sea clásica, moderna o glam. La impresión en papel de azúcar con tintas comestibles garantiza una imagen nítida, colores intensos y un acabado elegante que destaca en la mesa principal o en la candy bar.</p>
+ <p>Además de su diseño personalizado, se elaboran de forma profesional con ingredientes de la más alta calidad, ofreciendo el mejor sabor de galletas de mantequilla danesa con un toque de vainilla. Son ideales como recuerdo individual, detalle decorativo o complemento perfecto para ambientar la celebración con estilo y personalidad.</p>
+ <p>Si deseas sorprender con un detalle único y memorable, son la alternativa perfecta para combinar creatividad, elegancia y un sabor irresistible en una fecha tan especial.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'corporativo', nombre: 'Galletas con Logotipo', ico: '🏢',
+ foto: REF_BASE + 'corporativo/img_1.jpg',
+ fotos: ['corporativo/img_1.jpg','corporativo/img_2.jpg','corporativo/img_3.jpg','corporativo/img_4.jpg','corporativo/img_5.jpg','corporativo/img_6.jpg','corporativo/img_7.jpg','corporativo/img_8.jpg'],
+ titulo: 'Galletas con Logotipo (Corporativo)',
+ texto: `<p><strong>Galletas Promocionales con logo comestible</strong></p>
+ <p><em>Galletas con Logo Personalizado: Promociona tu Marca con Sabor</em></p>
+ <p>Las galletas con logo son una herramienta innovadora y efectiva para potenciar la visibilidad de tu marca. Personalizadas con el logotipo de tu empresa, estas galletas promocionales son ideales para eventos, campañas de marketing, ferias comerciales, conferencias y todo tipo de acciones corporativas.</p>
+ <p>Además de ser deliciosas, las galletas corporativas ayudan a generar una conexión emocional con tus clientes, socios o empleados. Úsalas como regalos empresariales, souvenirs o detalles personalizados para reforzar tu identidad.</p>
+ <ul style="margin:10px 0 12px 20px;color:var(--text);">
+ <li>Refuerzan tu imagen corporativa.</li>
+ <li>Son memorables y 100% personalizables.</li>
+ <li>Se adaptan a cualquier tipo de evento o campaña.</li>
+ <li>Una forma original de destacar frente a la competencia.</li>
+ </ul>
+ <p>Si buscas una forma creativa, sabrosa y visualmente impactante de representar tu marca, las galletas con logo son la opción perfecta. Solicita tu pedido personalizado y convierte cada bocado en una experiencia de marca.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'institucional', nombre: 'Galletas Institucionales', ico: '🎓',
+ foto: REF_BASE + 'institucion/img_1.jpg',
+ fotos: ['institucion/img_1.jpg','institucion/img_2.jpg','institucion/img_3.jpg','institucion/img_4.jpg','institucion/img_5.jpg','institucion/img_6.jpg','institucion/img_7.jpg','institucion/img_8.jpg'],
+ titulo: 'Galletas Institucionales',
+ texto: `<p><strong>Galletas con logo comestible para Instituciones</strong></p>
+ <p>Las galletas con logo comestible para instituciones son una excelente opción para fortalecer la identidad corporativa y sorprender en eventos empresariales, académicos o institucionales. Este detalle personalizado combina marketing, creatividad y sabor, convirtiéndose en una herramienta original para promocionar tu marca.</p>
+ <p>Permiten imprimir el logotipo, eslogan o imagen representativa en papel de azúcar con tintas comestibles de alta calidad. El resultado es una galleta con colores definidos, excelente resolución y un acabado profesional que refuerza la presencia visual de la institución en cualquier tipo de evento.</p>
+ <p>Son ideales para congresos, ferias, aniversarios, inauguraciones, graduaciones o celebraciones internas. Además de su atractivo visual, se elaboran con ingredientes seleccionados y son gourmet, adaptándose al paladar más selecto.</p>
+ <p>Si buscas una forma innovadora de promocionar tu organización, son el detalle perfecto. Refuerza tu imagen de marca con un producto personalizado, elegante y delicioso que dejará una impresión positiva y duradera en cada invitado.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ },
+ {
+ id: 'graduacion', nombre: 'Galletas de Graduación', ico: '🎓',
+ foto: REF_BASE + 'graduacion/img_1.jpg',
+ fotos: ['graduacion/img_1.jpg','graduacion/img_2.jpg','graduacion/img_3.jpg','graduacion/img_4.jpg','graduacion/img_5.jpg','graduacion/img_6.jpg','graduacion/img_7.jpg','graduacion/img_8.jpg'],
+ titulo: 'Galletas de Graduación',
+ texto: `<p><strong>Galletas con foto comestible de Graduación</strong></p>
+ <p>Las galletas con foto comestible de graduación son el detalle perfecto para celebrar un logro académico tan importante. Este dulce personalizado no solo endulza la fiesta, sino que también se convierte en un recuerdo único para familiares, amigos y compañeros que comparten este momento especial.</p>
+ <p>Puedes incluir la fotografía del graduado, su nombre, la fecha del evento o elementos alusivos como birretes y diplomas. La impresión se realiza en papel de azúcar con tintas comestibles de alta calidad, garantizando colores vibrantes, excelente definición y un acabado profesional que destaca en cualquier mesa dulce.</p>
+ <p>Además de su atractivo visual, se elaboran de manera artesanal con ingredientes seleccionados, ofreciendo el sabor de la galleta de mantequilla con un toque de vainilla. Son ideales como recuerdo personalizado para los invitados, detalle decorativo en la celebración o complemento perfecto para la candy bar.</p>
+ <p>Si deseas sorprender con un detalle original y significativo, son la mejor opción. Combina creatividad, calidad y sabor para hacer de la graduación un evento inolvidable lleno de orgullo y dulzura.</p>
+ <p><em>Cada producción de galletas es personalizada para cada cliente.</em></p>`
+ }
+ ];
+
+ // ===== Catálogo por FORMA (base de precios) =====
+ const FORMAS = [
+ { id: 'circular', ico: '⭕', nombre: 'Circulares', verbo: 'circulares' },
+ { id: 'cuadrada', ico: '🟦', nombre: 'Cuadradas', verbo: 'cuadradas' },
+ { id: 'rectangular', ico: '▬', nombre: 'Rectangulares', verbo: 'rectangulares' },
+ { id: 'corazon', ico: '❤️', nombre: 'Corazón', verbo: 'en forma de corazón' }
+ ];
+
+ const PRODUCTOS = {
+ circular: [
+ { talla: '4.0 cm', precio: 19, img: FOTO_BASE + FOTOS[0] },
+ { talla: '5.0 cm', precio: 24, img: FOTO_BASE + FOTOS[3] },
+ { talla: '7.5 cm', precio: 38, img: FOTO_BASE + FOTOS[1] },
+ { talla: '8.5 cm', precio: 43, img: FOTO_BASE + FOTOS[4] }
+ ],
+ cuadrada: [
+ { talla: '4.0 cm', precio: 19, img: FOTO_BASE + FOTOS[2] },
+ { talla: '5.0 cm', precio: 24, img: FOTO_BASE + FOTOS[4] },
+ { talla: '5.3 cm', precio: 24, img: FOTO_BASE + FOTOS[6] },
+ { talla: '8.5 cm', precio: 43, img: FOTO_BASE + FOTOS[7] }
+ ],
+ rectangular: [
+ { talla: '6.0 × 4.5 cm', precio: 25, img: FOTO_BASE + FOTOS[8] },
+ { talla: '7.5 × 5.5 cm', precio: 35, img: FOTO_BASE + FOTOS[9] }
+ ],
+ corazon: [
+ { talla: '7 × 7 cm', precio: 35, img: FOTO_BASE + FOTOS[5] },
+ { talla: '8 × 8 cm', precio: 39, img: FOTO_BASE + FOTOS[0] }
+ ]
+ };
+
+ let eventoActivo = null;
+ let formaActiva = 'circular';
+ let tallaActiva = null;
+
+ // ===== Render de la galería de eventos =====
+ function renderEventos() {
+ const grid = document.getElementById('eventGrid');
+ grid.innerHTML = EVENTOS.map(e => {
+ const isExpanded = (e.id === eventoActivo);
+ let expandHtml = '';
+ if (isExpanded) {
+ const waMsg = encodeURIComponent(`Hola Glassitas! Quiero cotizar galletas de ${e.nombre}. ¿Me pueden dar precios y tiempos?`);
+ const ejemplos = (e.fotos || []).map(f => REF_BASE + f);
+ const galleryHtml = ejemplos.map((f, index) => {
+ const code = 'GL-' + String(index + 1).padStart(3, '0');
+ return `
+ <div class="gallery-item" onclick="cotizarEjemplo('${e.nombre}'); event.stopPropagation();">
+ <img src="${f}" alt="${e.nombre}" loading="lazy">
+ <div class="frame-overlay"></div>
+ <span class="id-badge">${code}</span>
+ </div>
+ `;
+ }).join('');
+ 
+ expandHtml = `
+ <div class="expand-body" onclick="event.stopPropagation()">
+ <div class="expand-inner">
+ <button class="expand-close" onclick="selectEvento('${e.id}'); event.stopPropagation();">&times;</button>
+ <h3><em>${e.titulo}</em></h3>
+ <div class="expand-text">
+ ${e.texto}
+ </div>
+ <div class="expand-gallery">
+ ${galleryHtml}
+ </div>
+ <a class="wa-cat" href="https://wa.me/${WA}?text=${waMsg}" target="_blank">Cotizar ${e.nombre} por WhatsApp</a>
+ </div>
+ </div>
+ `;
+ }
+ 
+ return `
+ <div class="event-card ${isExpanded ? 'expanded active' : ''}" onclick="selectEvento('${e.id}')">
+ <div class="thumb">
+ <img src="${e.foto}" alt="${e.nombre}" loading="lazy">
+ <div class="frame-overlay"></div>
+ </div>
+ <div class="body">
+ <h3>${e.ico} ${e.nombre}</h3>
+ <p>${isExpanded ? 'Cerrar detalles' : 'Ver descripción y ejemplos'}</p>
+ </div>
+ ${expandHtml}
+ </div>`;
+ }).join('');
+ }
+
+ function selectEvento(id) {
+ if (eventoActivo === id) {
+ eventoActivo = null; // Cierra la tarjeta si se da clic de nuevo
+ } else {
+ eventoActivo = id;
+ }
+ renderEventos();
+ 
+ if (eventoActivo) {
+ setTimeout(() => {
+ const activeEl = document.querySelector('.event-card.expanded');
+ if (activeEl) {
+ const yOffset = -20; 
+ const y = activeEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+ window.scrollTo({top: y, behavior: 'smooth'});
+ }
+ }, 10);
+ }
+ }
+
+ function cotizarEjemplo(nombreEvento) {
+ const msg = encodeURIComponent(`Hola Glassitas! Vi un ejemplo de ${nombreEvento} en su tienda y me gustaría cotizar algo similar para mi evento.`);
+ window.open(`https://wa.me/${WA}?text=${msg}`, '_blank');
+ }
+
+ // ===== Render de formas =====
+ function renderFormas() {
+ const grid = document.getElementById('shapeGrid');
+ grid.innerHTML = FORMAS.map(f => `
+ <div class="shape-card ${f.id === formaActiva ? 'active' : ''}" onclick="selectForma('${f.id}')">
+ <span class="ico">${f.ico}</span>
+ <h3 class="text-3xl font-serif font-bold text-deep-teal mb-2">${f.nombre}</h3>
+ <p>${PRODUCTOS[f.id].length} tallas</p>
+ </div>`).join('');
+ }
+
+ function selectForma(id) {
+ formaActiva = id;
+ tallaActiva = null;
+ renderFormas();
+ renderTallas();
+ renderProductos();
+ }
+
+ function renderTallas() {
+ const chips = document.getElementById('tallaChips');
+ const tallas = [...new Set(PRODUCTOS[formaActiva].map(p => p.talla))];
+ chips.innerHTML = `<span class="talla-chip">Ver todas</span>` +
+ tallas.map(t => `<span class="talla-chip ${tallaActiva === t ? 'active' : ''}" onclick="selectTalla('${t}')">${t}</span>`).join('');
+ chips.querySelectorAll('.talla-chip')[0].onclick = () => { tallaActiva = null; renderTallas(); renderProductos(); };
+ }
+
+ function selectTalla(t) {
+ tallaActiva = t;
+ renderTallas();
+ renderProductos();
+ }
+
+ function renderProductos() {
+ const grid = document.getElementById('productGrid');
+ const formaInfo = FORMAS.find(f => f.id === formaActiva);
+ const items = PRODUCTOS[formaActiva].filter(p => !tallaActiva || p.talla === tallaActiva);
+ document.getElementById('catTitle').textContent = `Galletas ${formaInfo.nombre}`;
+ document.getElementById('catSub').textContent = `${items.length} tallas · Precio por galleta`;
+
+ const contexto = eventoActivo ? EVENTOS.find(e => e.id === eventoActivo).nombre : 'tu evento';
+ grid.innerHTML = items.map((prod, i) => {
+ const msg = encodeURIComponent(
+ `Hola Glassitas! Quiero cotizar galletas ${formaInfo.verbo} de ${prod.talla} para ${contexto}. ¿Me pueden dar precios?`
+ );
+ const wa = `https://wa.me/${WA}?text=${msg}`;
+ return `
+ <div class="product-card">
+ <div class="thumb"><img src="${prod.img}" alt="Galletas ${formaInfo.verbo} ${prod.talla}" loading="lazy"></div>
+ <div class="body">
+ <div class="name">${formaInfo.nombre} · ${prod.talla}</div>
+ <div class="spec">${formaInfo.verbo} personalizadas</div>
+ <span class="ref-label">Precio referencia</span>
+ <div class="price">$${prod.precio} <small style="font-size:0.7rem;color:var(--text-muted);font-weight:500;">/ galleta</small></div>
+ <div class="qty-row">
+ <label style="font-size:0.82rem;color:var(--text-muted);">Cantidad</label>
+ <input class="qty-input" id="qty_${formaActiva}_${i}" type="number" min="1" value="20">
+ </div>
+ <a class="wa-btn" href="${wa}" target="_blank">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ Cotizar por WhatsApp
+ </a>
+ </div>
+ </div>`;
+ }).join('');
+ }
+
+ // init
+ renderEventos();
+ renderFormas();
+ renderTallas();
+ renderProductos();
+ </script>
+</body>
+</html>

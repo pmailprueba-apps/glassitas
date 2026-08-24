@@ -52,21 +52,23 @@
 - [x] `scripts/publicar-glassitas.sh` — publicador bash+curl (sin Node), 2 slots/día
 - [x] `.github/workflows/glassitas.yml` — corre 12:00 y 18:00 CDMX
 - [x] `.glassitas-published.json` — estado anti-duplicados
-- [ ] 🔴 PENDIENTE: regenerar Page Token (expiró 25 Jun 2026) y configurarlo como secret `FB_PAGE_TOKEN` en GitHub
+- [x] ✅ Page Token regenerado el 21/08/26 (larga duración). PENDIENTE: actualizar secret `FB_PAGE_TOKEN` en GitHub Actions
 - [ ] Configurar System User para token permanente (la app es tipo Games, necesita ser Business)
 - [ ] Publicar manual (primera semana)
 
 ## Etapa 5 — Flyers y Posts Visuales
 
-- [ ] Plantillas de flyer por categoría de evento
-- [ ] Primeros 10 posts generados (flyer + foto real)
+- [x] Plantillas de flyer por categoría de evento (9 banners 16:9 con marco floral generados)
+- [x] Primeros posts generados (foto real + branding)
 - [x] Marca de agua aplicada a todas las imágenes (en `assets/productos/con-marca/`)
 
 ## Etapa 6 — TikTok (futuro)
 
 - [ ] Crear cuenta TikTok Business
-- [ ] Guión para primeros 3 videos (proceso de decoración)
+- [x] Guión + textos para primeros videos (4 campañas en `generar_videos_tiktok.py`)
+- [x] Videos generados (21/08/26): `tiktok_1_bodas`, `tiktok_2_babyshower`, `tiktok_3_slp`, `tiktok_4_infantil` (1080×1920, 7.5s, con marco)
 - [ ] Publicar primer video
+- [ ] 🔴 PENDIENTE: agregar música/audio a los videos TikTok (actualmente silenciosos)
 
 ## Etapa 7 — Anuncios (futuro)
 
@@ -88,3 +90,10 @@
 | 25/06/26 | Token generation vía System User FUNCIONA (appsecret_proof) — falta pages_manage_posts en la app |
 | 25/06/26 | 🔴 BLOQUEANTE: Meta eliminó pages_manage_posts para apps nuevas. Requiere App Review. |
 | 25/06/26 | ✅✅✅ API DE FACEBOOK REPARADA! pages_manage_posts concedido. Post via API funcionando. |
+| 21/08/26 | Instaladas 4278 fonts (~3300 familias): Google Fonts completo (3875 en `~/Library/Fonts/GoogleFonts/`) + packs Nerd Fonts vía brew (Fira Code, JetBrains, Cascadia, Hack, Geist). |
+| 21/08/26 | Regenerado script `generar_facebook_ads.py`: banners 16:9 (1080×608) con **marco floral** (`escaleta.png`) como borde absoluto, logo fuera del centro, texto serif. Genera 9 anuncios (bodas/babyshower/infantil ×3). |
+| 21/08/26 | ✅ TOKEN DE PÁGINA REGENERADO (Graph API Explorer → fb_exchange_token → token de página larga duración). Guardado en `.config.json` + `.token-page.txt`. Validado contra API. |
+| 21/08/26 | ✅ WhatsApp CORREGIDO a **+52 4445 101 553** (era 444 650 6790). Actualizado en `generar_facebook_ads.py`, `generar_escaleta.py`, `GUIA_FACEBOOK.md`. |
+| 21/08/26 | Publicadas en el feed las 36 fotos de producto (`con_marco_blanco/4_5_Vertical_1080x1350`) con el número correcto. Detección y borrado de duplicados (prueba inicial). |
+| 21/08/26 | Regenerados 4 videos TikTok con las **nuevas fotos con marco** (`9_16_Historias_1080x1920`): `tiktok_1_bodas`, `tiktok_2_babyshower`, `tiktok_3_slp`, `tiktok_4_infantil`. 1080×1920, 7.5s c/u, silenciosos. |
+| 21/08/26 | Pendiente: agregar música/audio a los videos TikTok; decidir si incluir WhatsApp en los textos de TikTok; procesar nuevas fotos IMG_2541-2544.HEIC (en `~/Downloads`). |

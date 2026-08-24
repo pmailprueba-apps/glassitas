@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes — Glassitas Galletas Decoradas</title>
+  <meta name="description" content="Preguntas frecuentes sobre las galletas decoradas personalizadas de Glassitas: pedido mínimo, tamaños y precios, ingredientes, envíos, pagos, caducidad y más.">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Gabriela"', 'serif'],
+            serif: ['"Dancing Script"', 'cursive'],
+            body: ['"Outfit"', 'sans-serif']
+          },
+          colors: {
+            "surface-dim": "#dbdad5",
+            "surface-bright": "#F8DCD1",
+            "secondary": "#9c4414",
+            "surface-container-lowest": "#ffffff",
+            "deep-teal": "#004B4D",
+            "background": "#F8DCD1",
+            "terracotta": "#C46231",
+            "on-surface-variant": "#3f4849",
+            "on-surface": "#1b1c19",
+            "off-white": "#F9F7F2"
+          },
+          spacing: {
+            "container-max": "1280px",
+            "gutter": "32px",
+            "margin-mobile": "20px"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Gabriela&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    .tactile-btn {
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+    .tactile-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 3px 3px 0px 0px #C46231;
+    }
+    .tactile-btn:active {
+      transform: scale(0.97) translate(0px, 0px) !important;
+      box-shadow: 0px 0px 0px 0px #C46231 !important;
+    }
+    .active-scale:active {
+      transform: scale(0.97) !important;
+    }
+    .ambient-shadow {
+      box-shadow: 0 10px 40px -10px rgba(0, 75, 77, 0.08);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms ease;
+      opacity: 0;
+    }
+    .faq-item.open .faq-a {
+      opacity: 1;
+    }
+    .faq-item.open .chev {
+      transform: rotate(45deg);
+      color: #C46231;
+    }
+    .chev {
+      transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), color 250ms ease;
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-[#FDFBF7] text-on-surface text-base overflow-x-hidden relative selection:bg-terracotta/20">
+
+  <!-- Faint Background Image -->
+  <div class="fixed inset-0 z-[-1] bg-[url('assets/background.jpeg')] bg-cover bg-center bg-no-repeat opacity-[0.20] pointer-events-none"></div>
+
+  <!-- TopAppBar -->
+  <header class="w-full top-0 sticky bg-surface-bright/90 backdrop-blur-md z-50 border-b border-terracotta/10 shadow-sm transition-all duration-300">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-12 py-3">
+      <div class="flex items-center gap-2">
+        <a href="tienda.html" class="inline-block relative group">
+          <div class="absolute inset-0 bg-white/40 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <img src="assets/logo/logo_transparente.png" alt="Glassitas Logo" class="h-14 md:h-20 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105">
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-10 bg-white/60 px-8 py-3 rounded-full border border-terracotta/10 shadow-[inset_0_1px_1px_rgba(255,255,255,1)]">
+        <a class="text-on-surface-variant font-semibold hover:text-terracotta transition-colors active-scale font-body" href="tienda.html">Galería</a>
+        <a class="text-on-surface-variant font-semibold hover:text-terracotta transition-colors active-scale font-body" href="tienda.html#mayoreo">Mayoreo</a>
+        <a class="text-deep-teal font-bold border-b-2 border-terracotta pb-0.5 hover:text-terracotta transition-colors font-body" href="#">Preguntas Frecuentes</a>
+      </nav>
+      <a href="https://wa.me/524445101553" target="_blank" class="tactile-btn bg-deep-teal text-white px-7 py-3 rounded-full text-sm font-bold uppercase tracking-widest hidden md:flex items-center gap-2 shadow-lg hover:shadow-xl hover:bg-[#00383a] font-body">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Contacto
+      </a>
+      <button class="md:hidden text-deep-teal hover:text-terracotta active-scale">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <header class="py-14 md:py-20 text-center relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-sm font-medium text-terracotta mb-4 font-body">
+        <a href="tienda.html" class="hover:underline">Inicio</a> <span class="text-on-surface-variant/40 mx-2">»</span> <span class="text-on-surface-variant">Preguntas frecuentes</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold text-deep-teal tracking-tight mb-6">
+        Preguntas <span class="font-serif font-bold text-terracotta italic text-6xl md:text-8xl inline-block -rotate-2 ml-1">frecuentes</span>
+      </h1>
+      <p class="text-lg md:text-xl font-light text-[#3f4849] max-w-2xl mx-auto leading-relaxed font-body">
+        Todo lo que necesitas saber sobre nuestras galletas decoradas personalizadas con tu imagen o logo comestible.
+      </p>
+    </div>
+  </header>
+
+  <!-- FAQ Section -->
+  <section class="max-w-4xl mx-auto px-6 pb-24">
+    <div class="space-y-4">
+
+      <!-- Item 1 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">PEDIDO MÍNIMO</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            El pedido mínimo es de <strong>20 galletas</strong> envasadas individualmente por diseño. Si solicitas 40 galletas puedes incluir dos diseños diferentes, y así sucesivamente.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">TAMAÑOS & PRECIOS</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4 space-y-4">
+            <p>El precio depende del tamaño de la galleta:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-[#FDFBF7] p-4 rounded-xl border border-terracotta/10">
+                <h4 class="font-bold text-deep-teal mb-2 font-sans text-lg">Circulares / Cuadradas</h4>
+                <ul class="space-y-1 text-sm md:text-base">
+                  <li>• <strong>4.0 cm</strong>: $19 c/u</li>
+                  <li>• <strong>5.0 cm</strong>: $24 c/u</li>
+                  <li>• <strong>7.5 cm</strong>: $39 c/u</li>
+                  <li>• <strong>8.5 cm</strong>: $44 c/u</li>
+                </ul>
+              </div>
+              <div class="bg-[#FDFBF7] p-4 rounded-xl border border-terracotta/10">
+                <h4 class="font-bold text-deep-teal mb-2 font-sans text-lg">Rectangulares</h4>
+                <ul class="space-y-1 text-sm md:text-base">
+                  <li>• <strong>6.0 × 4.5 cm</strong>: $25 c/u</li>
+                  <li>• <strong>7.5 × 5.5 cm</strong>: $35 c/u</li>
+                </ul>
+              </div>
+            </div>
+            <p class="text-sm text-[#3f4849]/80 italic">El precio incluye envasado individual. Puedes usar los colores y diseños que desees sin costo extra.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">INGREDIENTES</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            En nuestras galletas de mantequilla danesas utilizamos únicamente las mejores materias primas: la auténtica vainilla de Papantla/Veracruz, mantequilla Danesa de primera, papel de azúcar premium impreso con tinta comestible y una fina capa del mejor fondant artesanal. Están envasadas individualmente para conservar su frescura y sabor por más de 6 meses.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">SABOR</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            Nuestras galletas tienen la textura crocante y suave clásica de la auténtica mantequilla danesa, perfumadas con notas de vainilla natural. Son una experiencia 100% gourmet.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">¿LA IMAGEN ES COMESTIBLE?</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            <strong>Sí, totalmente.</strong> La impresión se realiza sobre láminas de papel de azúcar con tintas 100% comestibles y certificadas, lo que permite reproducir fotografías, logotipos y diseños con una nitidez extraordinaria.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">¿CON CUÁNTO TIEMPO DE ANTELACIÓN SE HACE EL PEDIDO?</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            Recomendamos realizar tu pedido con un mínimo de <strong>7 a 10 días de anticipación</strong> para programar el horneado, diseño y empaque. Si tu fecha está muy próxima, escríbenos por WhatsApp y revisaremos disponibilidad de producción express.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">ENVÍOS A TODA LA REPÚBLICA</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            Enviamos a cualquier ciudad de México por mensajería express (DHL / FedEx / Estafeta). Todas las galletas viajan con empaque especial antichoque y plástico de burbujas biodegradable para asegurar que lleguen impecables a tu puerta.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">PRECIOS DE MAYOREO</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            Contamos con precios preferenciales para pedidos corporativos o eventos masivos a partir de <strong>100 y 500 piezas</strong>. Puedes consultar la tabla completa en nuestra sección de <a href="tienda.html#mayoreo" class="text-terracotta font-bold underline">Mayoreo</a>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 9 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">CADUCIDAD Y ALMACENAMIENTO</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            En su empaque individual sellado, las galletas tienen una vida útil de <strong>hasta 6 meses</strong> en un lugar fresco y seco (15° a 25° C), protegidas de la luz solar directa y la humedad. No requieren refrigeración.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 10 -->
+      <div class="faq-item bg-white/90 rounded-2xl border border-terracotta/15 ambient-shadow overflow-hidden transition-all duration-300">
+        <button class="faq-q w-full text-left p-6 md:p-7 flex justify-between items-center gap-4 cursor-pointer">
+          <span class="text-lg md:text-xl font-bold text-deep-teal tracking-wide">¿CÓMO REALIZO MI PEDIDO?</span>
+          <span class="chev text-2xl font-bold text-terracotta">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="px-6 pb-7 md:px-7 text-[#3f4849] font-body text-base md:text-lg leading-relaxed border-t border-terracotta/10 pt-4">
+            Es muy sencillo: solo haz clic en nuestro botón de <strong>WhatsApp</strong>, indícanos la cantidad, fecha de tu evento y compártenos la imagen, foto o logotipo que deseas. Te enviaremos una muestra digital de cómo quedará antes de iniciar la producción.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-surface-bright border-t border-terracotta/20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl md:text-5xl font-bold text-deep-teal mb-4">¿Tienes alguna duda adicional?</h2>
+      <p class="text-lg text-[#3f4849] mb-8 font-body">Estamos listos para atenderte y cotizar tu evento especial al instante.</p>
+      <a href="https://wa.me/524445101553?text=Hola%20Glassitas%2C%20tengo%20una%20pregunta%20sobre%20las%20galletas" target="_blank" class="tactile-btn inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full text-base font-bold uppercase tracking-wider shadow-lg hover:bg-[#1ebe5b] font-body">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#FDFBF7] border-t border-terracotta/20 pt-16 pb-12">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <!-- Col 1: Brand & Info -->
+        <div class="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
+          <a href="tienda.html" class="inline-block mb-6">
+            <img src="assets/logo/logo_transparente.png" alt="Glassitas" class="h-20 md:h-24 w-auto object-contain drop-shadow-md">
+          </a>
+          <p class="text-[#3f4849] leading-relaxed max-w-sm mb-6 text-base font-body">
+            Fábrica especializada en galletas personalizadas. Artesanía en cada detalle para bodas, bautizos, empresas y celebraciones únicas.
+          </p>
+          <p class="text-on-surface-variant flex items-center justify-center md:justify-start gap-2 font-medium font-body text-sm">
+            <span class="material-symbols-outlined text-terracotta">location_on</span>
+            San Luis Potosí, México
+          </p>
+        </div>
+
+        <!-- Col 2: Enlaces -->
+        <div class="text-center md:text-left font-body">
+          <h4 class="font-bold text-deep-teal mb-6 uppercase tracking-wider text-sm">Explorar</h4>
+          <ul class="space-y-4">
+            <li><a href="tienda.html" class="text-[#3f4849] hover:text-terracotta transition-colors duration-200">Catálogo y Galería</a></li>
+            <li><a href="tienda.html#mayoreo" class="text-[#3f4849] hover:text-terracotta transition-colors duration-200">Precios de Mayoreo</a></li>
+            <li><a href="tienda.html#proceso" class="text-[#3f4849] hover:text-terracotta transition-colors duration-200">Cómo trabajamos</a></li>
+            <li><a href="#" class="text-deep-teal font-semibold hover:text-terracotta transition-colors duration-200">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contacto -->
+        <div class="text-center md:text-left font-body">
+          <h4 class="font-bold text-deep-teal mb-6 uppercase tracking-wider text-sm">Contacto</h4>
+          <ul class="space-y-4">
+            <li>
+              <a href="https://wa.me/524445101553" target="_blank" class="inline-flex items-center justify-center md:justify-start gap-2 text-[#3f4849] hover:text-[#25D366] transition-colors duration-200 font-medium">
+                <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp (+52 444 510 1553)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 border-t border-terracotta/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-body">
+        <p>© 2026 Glassitas. Todos los derechos reservados.</p>
+        <p>Hecho con pasión en San Luis Potosí</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-a');
+        const isOpen = item.classList.contains('open');
+
+        // Close other items
+        document.querySelectorAll('.faq-item.open').forEach(o => {
+          if (o !== item) {
+            o.classList.remove('open');
+            o.querySelector('.faq-a').style.maxHeight = '0px';
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          item.classList.remove('open');
+          answer.style.maxHeight = '0px';
+        } else {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
